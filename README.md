@@ -203,7 +203,7 @@ user inputs
 
 > 4. Administrator activities
 
-### Administrator
+### User: Administrator
 
 As an administrator of the game
 
