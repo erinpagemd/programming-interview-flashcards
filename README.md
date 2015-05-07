@@ -348,6 +348,50 @@ delete
 
 >  Enter 1 to go back
 
+##### Add a question
+
+####### Usage Example
+
+In order to 
+
+I want to 
+
+####### Acceptance Criteria
+
+
+User inputs
+```
+$ Flashcards
+```
+
+> Welcome to Flashcards!
+
+> Please choose from the following:
+
+> 1. Play a new game
+
+> 2. View score dashboard
+
+> 3. Review missed questions
+
+> 4. Administrator activities
+
+User inputs
+```
+$ 4
+```
+
+> Enter the QuestionId to manipulate
+
+user inputs 
+```
+new
+```
+
+> Prompts for question, a. response, b. response, c. response, correct answer
+
+> returns the QuestionId of the newly added question
+
 ##### Scenario 273
 
 ####### Usage Example
@@ -357,3 +401,4 @@ In order to
 I want to 
 
 ####### Acceptance Criteria
+
