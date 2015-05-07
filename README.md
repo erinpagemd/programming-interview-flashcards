@@ -18,7 +18,7 @@ Users will be able to answer questions, review a score board, see a list of miss
 
 ## User Stories
 
-### Game Player
+### User: Game Player
 
 As a junior programmer looking for a job
 
@@ -191,11 +191,23 @@ user inputs
 1
 ```
 
+> Welcome to Flashcards!
+
+> Please choose from the following:
+
+> 1. Play a new game
+
+> 2. View score dashboard
+
+> 3. Review missed questions
+
+> 4. Administrator activities
+
 ### Administrator
 
 As an administrator of the game
 
-In order to improve readability
+In order to improve readability and user experience
 
 I want to edit/delete the questions, answers, and expected responses.
 
