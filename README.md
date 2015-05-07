@@ -26,6 +26,37 @@ In order to perform well at programming interviews
 
 I want to practice potential interview questions and review/track my results
 
-####Usage Example
+### Scenarios
 
-####Acceptance Criteria
+#### 1a
+
+###### Usage Example
+
+In order to start a game
+
+I want to go to the console, run the program, and choose to start a new game
+
+###### Acceptance Criteria
+
+Open the terminal and cd into the game directory.
+
+User inputs
+```
+$ Flashcards
+```
+
+> Welcome to Flashcards!
+> Please choose from the following:
+> 1. Play a new game
+> 2. View score board
+> 3. Review missed questions
+> 4. Administrator activities
+
+User inputs
+```
+$ 1
+```
+
+First question displays. 
+
+
