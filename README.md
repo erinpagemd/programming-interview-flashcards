@@ -51,7 +51,7 @@ $ Flashcards
 
 > 1. Play a new game
 
-> 2. View score board
+> 2. View score dashboard
 
 > 3. Review missed questions
 
@@ -65,15 +65,65 @@ $ 1
 First question displays. 
 
 
-#### Scenario 456
+#### View the Score Board
 
 ###### Usage Example
 
-In order to 
+In order to set goals on performance
 
-I want to 
+I want to view a summary of my scores over time
 
 ###### Acceptance Criteria
+
+User inputs
+```
+$ Flashcards
+```
+
+> Welcome to Flashcards!
+
+> Please choose from the following:
+
+> 1. Play a new game
+
+> 2. View score dashboard
+
+> 3. Review missed questions
+
+> 4. Administrator activities
+
+User inputs
+```
+$ 2
+```
+
+> Score Dashboard
+
+> Number of games played: 10
+
+> Average Score: 40%
+
+> Best Score: 100%
+
+> 1. back
+
+user inputs
+```
+1
+```
+
+> Welcome to Flashcards!
+
+> Please choose from the following:
+
+> 1. Play a new game
+
+> 2. View score dashboard
+
+> 3. Review missed questions
+
+> 4. Administrator activities
+
 
 #### Scenario 920
 
