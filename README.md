@@ -18,7 +18,7 @@ Users will be able to answer questions, review a score board, see a list of miss
 
 ## User Stories
 
-### One
+### Only one user currently
 
 As a junior programmer looking for a job
 
@@ -28,7 +28,7 @@ I want to practice potential interview questions and review/track my results
 
 ### Scenarios
 
-#### 1a
+#### Start Playing
 
 ###### Usage Example
 
@@ -46,10 +46,15 @@ $ Flashcards
 ```
 
 > Welcome to Flashcards!
+
 > Please choose from the following:
+
 > 1. Play a new game
+
 > 2. View score board
+
 > 3. Review missed questions
+
 > 4. Administrator activities
 
 User inputs
@@ -60,3 +65,42 @@ $ 1
 First question displays. 
 
 
+#### Scenario 456
+
+###### Usage Example
+
+In order to 
+
+I want to 
+
+###### Acceptance Criteria
+
+#### Scenario 920
+
+###### Usage Example
+
+In order to 
+
+I want to 
+
+###### Acceptance Criteria
+
+#### Scenario 103
+
+###### Usage Example
+
+In order to 
+
+I want to 
+
+###### Acceptance Criteria
+
+#### Scenario 273
+
+###### Usage Example
+
+In order to 
+
+I want to 
+
+###### Acceptance Criteria
