@@ -62,8 +62,19 @@ User inputs
 $ 1
 ```
 
-First question displays. 
+> Question 1 of 10
 
+> Score: 0
+
+> Category: Ruby
+
+> Q: How does a symbol differ from a string?
+
+> a. Symbols are immutable and reusable, retaining the same object_id.
+
+> b. Strings are immutable and resusable, retaining the same object_id.
+
+> c. Symobls and strings do not differ.
 
 #### View the Score Board
 
@@ -125,15 +136,58 @@ user inputs
 > 4. Administrator activities
 
 
-#### Scenario 920
+#### Review Missed Questions
 
 ###### Usage Example
 
-In order to 
+In order to increase my knowledge base
 
-I want to 
+I want to familiarize myself with questions I previously missed
 
 ###### Acceptance Criteria
+
+User inputs
+```
+$ Flashcards
+```
+
+> Welcome to Flashcards!
+
+> Please choose from the following:
+
+> 1. Play a new game
+
+> 2. View score dashboard
+
+> 3. Review missed questions
+
+> 4. Administrator activities
+
+User inputs
+```
+$ 3
+```
+
+> Missed Questions
+
+> Q: How does a symbol differ from a string?
+
+> Missed 4 times
+
+> Category: Ruby
+
+> Q: What is a Proc?
+
+> Missed 1 time
+
+> Category: Ruby
+
+> 1. back
+
+user inputs 
+```
+1
+```
 
 #### Scenario 103
 
