@@ -14,7 +14,7 @@ Users will be able to answer questions, review a score board, see a list of miss
 * View score board
 * View missed questions
 * Score is kept while playing game
-* Ability to edit the game (edit/delete questions and answers)
+* Ability to edit the game (edit/delete/add questions and answers)
 
 ## User Stories
 
@@ -265,6 +265,8 @@ user inputs
 
 > c. Symbols and strings do not differ.
 
+> Correct Answer: A
+
 user inputs
 ```
 yes
@@ -332,6 +334,8 @@ user inputs
 
 > c. Symbols and strings do not differ.
 
+> Correct Answer: A
+
 user inputs
 ```
 yes
@@ -392,6 +396,47 @@ new
 
 > returns the QuestionId of the newly added question
 
+##### Review all questions
+
+####### Usage Example
+
+In order to find QuestionId of the question it edit or delete
+
+I want to review of a list of all questions and their answers
+
+####### Acceptance Criteria
+
+User inputs
+```
+$ Flashcards
+```
+
+> Welcome to Flashcards!
+
+> Please choose from the following:
+
+> 1. Play a new game
+
+> 2. View score dashboard
+
+> 3. Review missed questions
+
+> 4. Administrator activities
+
+User inputs
+```
+$ 4
+```
+
+> Enter the QuestionId to manipulate
+
+user inputs 
+```
+list
+```
+
+> list of questions, answers, etc goes here
+
 ##### Scenario 273
 
 ####### Usage Example
@@ -401,4 +446,3 @@ In order to
 I want to 
 
 ####### Acceptance Criteria
-
