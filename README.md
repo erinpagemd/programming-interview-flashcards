@@ -4,7 +4,7 @@
 
 ## Project Vision
 
-Interactive command line program written in Ruby with a SQLite database. 
+Interactive command line program written in Ruby with a SQLite database.
 
 Users will be able to answer questions, review a score board, see a list of missed questions.
 
@@ -74,7 +74,7 @@ $ 1
 
 > a. Symbols are immutable and reusable, retaining the same object_id.
 
-> b. Strings are immutable and resusable, retaining the same object_id.
+> b. Strings are immutable and reusable, retaining the same object_id.
 
 > c. Symbols and strings do not differ.
 
@@ -186,7 +186,7 @@ $ 3
 
 > Enter 1 to go back
 
-user inputs 
+user inputs
 ```
 1
 ```
@@ -209,9 +209,121 @@ As an administrator of the game
 
 In order to improve readability and user experience
 
-I want to edit/delete the questions, answers, and expected responses.
+I want to add, edit, and delete the questions, answers, and expected responses.
 
 #### Scenarios
+
+##### Add Question Unit
+
+####### Usage Example
+
+In order to keep the game fresh
+
+I want to add new questions to the game.
+
+####### Acceptance Criteria
+
+User inputs
+```
+$ Flashcards
+```
+
+> Welcome to Flashcards!
+
+> Please choose from the following:
+
+> 1. Play a new game
+
+> 2. View score dashboard
+
+> 3. Review missed questions
+
+> 4. Administrator activities
+
+User inputs
+```
+$ 4
+```
+
+> Administrator Panel
+
+> Please choose from the following:
+
+> 1. Add a new question
+
+> 2. Edit an existing question
+
+> 3. Delete a question
+
+> 4. See a list of all current questions
+
+> 5. Return to main menu
+
+User inputs
+```
+1
+```
+
+> Add a question!
+
+> What category is this question (ruby, css, javascript, etc)?
+
+User inputs
+```
+ruby
+```
+
+> Please enter the question.
+
+User inputs
+```
+How does a symbol differ from a string?
+```
+
+> What is response choice 'a' for this question?
+
+User inputs
+```
+Symbols are immutable and reusable, retaining the same object_id.
+```
+
+> What is response choice 'b' for this question?
+
+User inputs
+```
+Strings are immutable and reusable, retaining the same object_id.
+```
+
+> What is response choice 'c' for this question?
+
+User inputs
+```
+Symbols and strings do not differ.
+```
+
+> What is the correct response choice for this question (a,b,c)?
+
+User inputs
+```
+a
+```
+
+> New question added!!
+
+> Administrator Panel
+
+> Please choose from the following:
+
+> 1. Add a new question
+
+> 2. Edit an existing question
+
+> 3. Delete a question
+
+> 4. See a list of all current questions
+
+> 5. Return to main menu
+
 
 ##### Edit Question Unit
 
@@ -244,42 +356,59 @@ User inputs
 ```
 $ 4
 ```
+> Administrator Panel
 
-> Enter the QuestionId to manipulate
+> Please choose from the following:
 
-user inputs 
+> 1. Add a new question
+
+> 2. Edit an existing question
+
+> 3. Delete a question
+
+> 4. See a list of all current questions
+
+> 5. Return to main menu
+
+User inputs
+```
+2
+```
+> QuestionId of question to edit
+
+User inputs
 ```
 5
 ```
-> Is this the question you want to manipulate?
+> Part of question to edit (Category, Q, A, B, C, Correct)
 
-> QuestionId: 5
-
-> Category: Ruby
-
-> Q: How does a symbol differ from a string?
-
-> a. Symbols are immutable and reusable, retaining the same object_id.
-
-> b. Strings are immutable and resusable, retaining the same object_id.
-
-> c. Symbols and strings do not differ.
-
-> Correct Answer: A
-
-user inputs
+User inputs
 ```
-yes
+Category
 ```
 
-> Would you like to edit or delete this record?
+> What is the new category for this question?
 
-user inputs 
+User inputs
 ```
-edit
+ruby
 ```
 
-EDITING HAPPENS NOW
+> Question edited!
+
+> Administrator Panel
+
+> Please choose from the following:
+
+> 1. Add a new question
+
+> 2. Edit an existing question
+
+> 3. Delete a question
+
+> 4. See a list of all current questions
+
+> 5. Return to main menu
 
 
 ##### Delete Question Unit
@@ -314,87 +443,47 @@ User inputs
 $ 4
 ```
 
-> Enter the QuestionId to manipulate
-
-user inputs 
-```
-5
-```
-> Is this the question you want to manipulate?
-
-> QuestionId: 5
-
-> Category: Ruby
-
-> Q: How does a symbol differ from a string?
-
-> a. Symbols are immutable and reusable, retaining the same object_id.
-
-> b. Strings are immutable and resusable, retaining the same object_id.
-
-> c. Symbols and strings do not differ.
-
-> Correct Answer: A
-
-user inputs
-```
-yes
-```
-
-> Would you like to edit or delete this question?
-
-user inputs 
-```
-delete
-```
-
-> Question removed from database
-
->  Enter 1 to go back
-
-##### Add a question
-
-####### Usage Example
-
-In order to 
-
-I want to 
-
-####### Acceptance Criteria
-
-
-User inputs
-```
-$ Flashcards
-```
-
-> Welcome to Flashcards!
+> Administrator Panel
 
 > Please choose from the following:
 
-> 1. Play a new game
+> 1. Add a new question
 
-> 2. View score dashboard
+> 2. Edit an existing question
 
-> 3. Review missed questions
+> 3. Delete a question
 
-> 4. Administrator activities
+> 4. See a list of all current questions
+
+> 5. Return to main menu
 
 User inputs
 ```
-$ 4
+3
 ```
 
-> Enter the QuestionId to manipulate
+> QuestionId of question to delete
 
-user inputs 
+User inputs
 ```
-new
+5
 ```
 
-> Prompts for question, a. response, b. response, c. response, correct answer
+> Question deleted!
 
-> returns the QuestionId of the newly added question
+> Administrator Panel
+
+> Please choose from the following:
+
+> 1. Add a new question
+
+> 2. Edit an existing question
+
+> 3. Delete a question
+
+> 4. See a list of all current questions
+
+> 5. Return to main menu
 
 ##### Review all questions
 
@@ -427,22 +516,110 @@ User inputs
 ```
 $ 4
 ```
+> Administrator Panel
 
-> Enter the QuestionId to manipulate
+> Please choose from the following:
 
-user inputs 
+> 1. Add a new question
+
+> 2. Edit an existing question
+
+> 3. Delete a question
+
+> 4. See a list of all current questions
+
+> 5. Return to main menu
+
+User inputs
 ```
-list
+4
+```
+> list of questions shows with Q, Answers, Correct, Category
+
+> Administrator Panel
+
+> Please choose from the following:
+
+> 1. Add a new question
+
+> 2. Edit an existing question
+
+> 3. Delete a question
+
+> 4. See a list of all current questions
+
+> 5. Return to main menu
+
+
+##### Return to main menu
+
+####### Usage Example
+
+In order to play the game instead of admin activities
+
+I want to return to the main menu
+
+####### Acceptance Criteria
+
+User inputs
+```
+$ Flashcards
 ```
 
-> list of questions, answers, etc goes here
+> Welcome to Flashcards!
+
+> Please choose from the following:
+
+> 1. Play a new game
+
+> 2. View score dashboard
+
+> 3. Review missed questions
+
+> 4. Administrator activities
+
+User inputs
+```
+$ 4
+```
+> Administrator Panel
+
+> Please choose from the following:
+
+> 1. Add a new question
+
+> 2. Edit an existing question
+
+> 3. Delete a question
+
+> 4. See a list of all current questions
+
+> 5. Return to main menu
+
+User inputs
+```
+5
+```
+
+> Welcome to Flashcards!
+
+> Please choose from the following:
+
+> 1. Play a new game
+
+> 2. View score dashboard
+
+> 3. Review missed questions
+
+> 4. Administrator activities
+
 
 ##### Scenario 273
 
 ####### Usage Example
 
-In order to 
+In order to
 
-I want to 
+I want to
 
 ####### Acceptance Criteria
