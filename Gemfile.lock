@@ -15,5 +15,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  highline
   minitest
   minitest-reporters

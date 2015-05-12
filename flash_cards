@@ -1,0 +1,36 @@
+#!/usr/bin/env ruby
+require 'highline/import'
+
+
+ADMIN_MENU = <<EOS
+Administrator Panel
+Please choose from the following:
+1. Add a new question
+2. Edit an existing question
+3. Delete a question
+4. See a list of all current questions
+5. Return to main menu
+
+EOS
+
+ARGV_ERROR = <<EOS
+run with './flash_cards'
+EOS
+
+MENU_ERROR = <<EOS
+I did not recognize that. Please try again.
+EOS
+
+if ARGV.length == 0
+  choose do |main_menu|
+    main_menu.prompt= "Welcome to Flashcards!\n" + "Please choose from the following:\n"
+    main_menu.choice("Play a new game")
+    main_menu.choice("View score dashboard")
+    main_menu.choice("Review missed questions")
+    main_menu.choice("Administrator activities")
+    main_menu.choice("Exit")
+  end
+else
+  print ARGV_ERROR
+  exit
+end
