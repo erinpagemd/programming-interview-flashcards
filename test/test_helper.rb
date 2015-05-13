@@ -19,3 +19,14 @@ def main_menu
   "4. Administrator activities\n" +
   "5. Exit\n"
 end
+
+def admin_menu
+  "Administrator Panel\n" +
+  "Please choose from the following:\n" +
+  ":\n" +
+  "1. Add a new question\n" +
+  "2. Edit an existing question\n" +
+  "3. Delete a question\n" +
+  "4. See a list of all current questions\n" +
+  "5. Return to main menu\n"
+end

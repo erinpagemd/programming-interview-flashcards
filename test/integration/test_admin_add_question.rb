@@ -21,14 +21,8 @@ class TestAdminAdd < Minitest::Test
       pipe.puts "10"
       expected << "?  You must choose one of [1, 2, 3, 4, 5, Play a new game, View score dashboard, Review missed questions, Administrator activities, Exit].\n"
       pipe.puts "4"
-      expected << "?  Administrator Panel\n"
-      expected << "Please choose from the following:\n"
-      expected << ":\n"
-      expected << "1. Add a new question\n"
-      expected << "2. Edit an existing question\n"
-      expected << "3. Delete a question\n"
-      expected << "4. See a list of all current questions\n"
-      expected << "5. Return to main menu\n"
+      expected << "?  "
+      expected << admin_menu
       expected << "?  "
       pipe.close_write
       shell_output = pipe.read
@@ -44,14 +38,8 @@ class TestAdminAdd < Minitest::Test
       pipe.puts " "
       expected << "?  Ambiguous choice.  Please choose one of [1, 2, 3, 4, 5, Play a new game, View score dashboard, Review missed questions, Administrator activities, Exit].\n"
       pipe.puts "4"
-      expected << "?  Administrator Panel\n"
-      expected << "Please choose from the following:\n"
-      expected << ":\n"
-      expected << "1. Add a new question\n"
-      expected << "2. Edit an existing question\n"
-      expected << "3. Delete a question\n"
-      expected << "4. See a list of all current questions\n"
-      expected << "5. Return to main menu\n"
+      expected << "?  "
+      expected << admin_menu
       expected << "?  "
       pipe.close_write
       shell_output = pipe.read
@@ -67,14 +55,8 @@ class TestAdminAdd < Minitest::Test
       pipe.puts ""
       expected << "?  Ambiguous choice.  Please choose one of [1, 2, 3, 4, 5, Play a new game, View score dashboard, Review missed questions, Administrator activities, Exit].\n"
       pipe.puts "4"
-      expected << "?  Administrator Panel\n"
-      expected << "Please choose from the following:\n"
-      expected << ":\n"
-      expected << "1. Add a new question\n"
-      expected << "2. Edit an existing question\n"
-      expected << "3. Delete a question\n"
-      expected << "4. See a list of all current questions\n"
-      expected << "5. Return to main menu\n"
+      expected << "?  "
+      expected << admin_menu
       expected << "?  "
       pipe.close_write
       shell_output = pipe.read
@@ -88,14 +70,8 @@ class TestAdminAdd < Minitest::Test
     IO.popen('./flash_cards', 'r+') do |pipe|
       expected << main_menu
       pipe.puts "4"
-      expected << "?  Administrator Panel\n"
-      expected << "Please choose from the following:\n"
-      expected << ":\n"
-      expected << "1. Add a new question\n"
-      expected << "2. Edit an existing question\n"
-      expected << "3. Delete a question\n"
-      expected << "4. See a list of all current questions\n"
-      expected << "5. Return to main menu\n"
+      expected << "?  "
+      expected << admin_menu
       expected << "?  "
       pipe.close_write
       shell_output = pipe.read
@@ -109,14 +85,8 @@ class TestAdminAdd < Minitest::Test
     IO.popen('./flash_cards', 'r+') do |pipe|
       expected << main_menu
       pipe.puts "4"
-      expected << "?  Administrator Panel\n"
-      expected << "Please choose from the following:\n"
-      expected << ":\n"
-      expected << "1. Add a new question\n"
-      expected << "2. Edit an existing question\n"
-      expected << "3. Delete a question\n"
-      expected << "4. See a list of all current questions\n"
-      expected << "5. Return to main menu\n"
+      expected << "?  "
+      expected << admin_menu
       pipe.puts "1"
       expected << "?  Add a new question\n"
       pipe.close_write
@@ -131,14 +101,8 @@ class TestAdminAdd < Minitest::Test
     IO.popen('./flash_cards', 'r+') do |pipe|
       expected << main_menu
       pipe.puts "4"
-      expected << "?  Administrator Panel\n"
-      expected << "Please choose from the following:\n"
-      expected << ":\n"
-      expected << "1. Add a new question\n"
-      expected << "2. Edit an existing question\n"
-      expected << "3. Delete a question\n"
-      expected << "4. See a list of all current questions\n"
-      expected << "5. Return to main menu\n"
+      expected << "?  "
+      expected << admin_menu
       pipe.puts ""
       expected << "?  Ambiguous choice.  Please choose one of [1, 2, 3, 4, 5, Add a new question, Edit an existing question, Delete a question, See a list of all current questions, Return to main menu].\n"
       expected << "?  "
@@ -156,14 +120,8 @@ class TestAdminAdd < Minitest::Test
     IO.popen('./flash_cards', 'r+') do |pipe|
       expected << main_menu
       pipe.puts "4"
-      expected << "?  Administrator Panel\n"
-      expected << "Please choose from the following:\n"
-      expected << ":\n"
-      expected << "1. Add a new question\n"
-      expected << "2. Edit an existing question\n"
-      expected << "3. Delete a question\n"
-      expected << "4. See a list of all current questions\n"
-      expected << "5. Return to main menu\n"
+      expected << "?  "
+      expected << admin_menu
       pipe.puts "90"
       expected << "?  You must choose one of [1, 2, 3, 4, 5, Add a new question, Edit an existing question, Delete a question, See a list of all current quesitons, Return to main menu]. \n"
       expected << "?  "

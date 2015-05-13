@@ -7,14 +7,8 @@ class TestAdminDelete < Minitest::Test
     IO.popen('./flash_cards', 'r+') do |pipe|
       expected << main_menu
       pipe.puts "4"
-      expected << "?  Administrator Panel\n"
-      expected << "Please choose from the following:\n"
-      expected << ":\n"
-      expected << "1. Add a new question\n"
-      expected << "2. Edit an existing question\n"
-      expected << "3. Delete a question\n"
-      expected << "4. See a list of all current questions\n"
-      expected << "5. Return to main menu\n"
+      expected << "?  "
+      expected << admin_menu
       pipe.puts "3"
       expected << "?  Delete a question\n"
       pipe.close_write
