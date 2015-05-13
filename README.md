@@ -254,6 +254,8 @@ $ 5
 
 ####### Acceptance Criteria
 
+* The program stops exits
+
 
 ### User: Administrator
 

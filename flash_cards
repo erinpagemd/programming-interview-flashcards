@@ -33,13 +33,25 @@ def score_dashboard
 end
 
 def admin_menu
-  say("Administrator Panel\n" +
-      "Please choose from the following:\n" +
-      "1. Add a new question\n" +
-      "2. Edit an existing question\n" +
-      "3. Delete a question\n" +
-      "4. See a list of all current questions\n" +
-      "5. Return to main menu\n")
+  say(choose do |menu|
+    menu.header = "Administrator Panel\n" + "Please choose from the following:\n"
+    menu.choice("Add a new question")
+    menu.choice("Edit an existing question")
+    menu.choice("Delete a question")
+    menu.choice("See a list of all current questions")
+    menu.choice("Return to main menu") { main_menu }
+  end)
+end
+
+def main_menu
+  choose do |menu|
+    menu.header = "Welcome to Flashcards!\n" + "Please choose from the following:\n"
+    menu.choice("Play a new game") { new_game }
+    menu.choice("View score dashboard") { score_dashboard }
+    menu.choice("Review missed questions") { missed_questions }
+    menu.choice("Administrator activities") { admin_menu }
+    menu.choice("Exit") { say("Closing program") }
+  end
 end
 
 
@@ -52,14 +64,7 @@ I did not recognize that. Please try again.
 EOS
 
 if ARGV.length == 0
-  choose do |menu|
-    menu.header = "Welcome to Flashcards!\n" + "Please choose from the following:\n"
-    menu.choice("Play a new game") { new_game }
-    menu.choice("View score dashboard") { score_dashboard }
-    menu.choice("Review missed questions") { missed_questions }
-    menu.choice("Administrator activities") { admin_menu }
-    menu.choice("Exit") { say("Closing program") }
-  end
+  main_menu
 else
   print ARGV_ERROR
   exit
