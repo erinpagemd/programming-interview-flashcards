@@ -6,14 +6,7 @@ class TestReturnToMainMenu < Minitest::Test
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|
-      expected << "Welcome to Flashcards!\n"
-      expected << "Please choose from the following:\n"
-      expected << ":\n"
-      expected << "1. Play a new game\n"
-      expected << "2. View score dashboard\n"
-      expected << "3. Review missed questions\n"
-      expected << "4. Administrator activities\n"
-      expected << "5. Exit\n"
+      expected << main_menu
       pipe.puts "4"
       expected << "?  Administrator Panel\n"
       expected << "Please choose from the following:\n"
@@ -24,14 +17,8 @@ class TestReturnToMainMenu < Minitest::Test
       expected << "4. See a list of all current questions\n"
       expected << "5. Return to main menu\n"
       pipe.puts "5"
-      expected << "?  Welcome to Flashcards!\n"
-      expected << "Please choose from the following:\n"
-      expected << ":\n"
-      expected << "1. Play a new game\n"
-      expected << "2. View score dashboard\n"
-      expected << "3. Review missed questions\n"
-      expected << "4. Administrator activities\n"
-      expected << "5. Exit\n"
+      expected << "?  "
+      expected << main_menu
       expected << "?  "
       pipe.close_write
       shell_output = pipe.read

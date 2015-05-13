@@ -10,4 +10,12 @@ reporter_options = {color: true}
 Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(reporter_options)]
 
 def main_menu
+  "Welcome to Flashcards!\n" +
+  "Please choose from the following:\n" +
+  ":\n" +
+  "1. Play a new game\n" +
+  "2. View score dashboard\n" +
+  "3. Review missed questions\n" +
+  "4. Administrator activities\n" +
+  "5. Exit\n"
 end

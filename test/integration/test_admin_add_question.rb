@@ -13,43 +13,11 @@ class TestAdminAdd < Minitest::Test
     assert_equal expected, shell_output
   end
 
-  def test_happy_argv
-    shell_output = ""
-    expected = ""
-    IO.popen('./flash_cards', 'r+') do |pipe|
-      expected << "Welcome to Flashcards!\n"
-      expected << "Please choose from the following:\n"
-      expected << ":\n"
-      expected << "1. Play a new game\n"
-      expected << "2. View score dashboard\n"
-      expected << "3. Review missed questions\n"
-      expected << "4. Administrator activities\n"
-      expected << "5. Exit\n"
-      expected << "?  "
-      pipe.close_write
-      shell_output = pipe.read
-    end
-    assert_equal expected, shell_output
-  end
-
-  def test_happy_path
-  end
-
-  def test_happy_path_2
-  end
-
   def test_main_menu_wrong_input
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|
-      expected << "Welcome to Flashcards!\n"
-      expected << "Please choose from the following:\n"
-      expected << ":\n"
-      expected << "1. Play a new game\n"
-      expected << "2. View score dashboard\n"
-      expected << "3. Review missed questions\n"
-      expected << "4. Administrator activities\n"
-      expected << "5. Exit\n"
+      expected << main_menu
       pipe.puts "10"
       expected << "?  You must choose one of [1, 2, 3, 4, 5, Play a new game, View score dashboard, Review missed questions, Administrator activities, Exit].\n"
       pipe.puts "4"
@@ -72,14 +40,7 @@ class TestAdminAdd < Minitest::Test
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|
-      expected << "Welcome to Flashcards!\n"
-      expected << "Please choose from the following:\n"
-      expected << ":\n"
-      expected << "1. Play a new game\n"
-      expected << "2. View score dashboard\n"
-      expected << "3. Review missed questions\n"
-      expected << "4. Administrator activities\n"
-      expected << "5. Exit\n"
+      expected << main_menu
       pipe.puts " "
       expected << "?  Ambiguous choice.  Please choose one of [1, 2, 3, 4, 5, Play a new game, View score dashboard, Review missed questions, Administrator activities, Exit].\n"
       pipe.puts "4"
@@ -102,14 +63,7 @@ class TestAdminAdd < Minitest::Test
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|
-      expected << "Welcome to Flashcards!\n"
-      expected << "Please choose from the following:\n"
-      expected << ":\n"
-      expected << "1. Play a new game\n"
-      expected << "2. View score dashboard\n"
-      expected << "3. Review missed questions\n"
-      expected << "4. Administrator activities\n"
-      expected << "5. Exit\n"
+      expected << main_menu
       pipe.puts ""
       expected << "?  Ambiguous choice.  Please choose one of [1, 2, 3, 4, 5, Play a new game, View score dashboard, Review missed questions, Administrator activities, Exit].\n"
       pipe.puts "4"
@@ -132,14 +86,7 @@ class TestAdminAdd < Minitest::Test
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|
-      expected << "Welcome to Flashcards!\n"
-      expected << "Please choose from the following:\n"
-      expected << ":\n"
-      expected << "1. Play a new game\n"
-      expected << "2. View score dashboard\n"
-      expected << "3. Review missed questions\n"
-      expected << "4. Administrator activities\n"
-      expected << "5. Exit\n"
+      expected << main_menu
       pipe.puts "4"
       expected << "?  Administrator Panel\n"
       expected << "Please choose from the following:\n"
@@ -160,14 +107,7 @@ class TestAdminAdd < Minitest::Test
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|
-      expected << "Welcome to Flashcards!\n"
-      expected << "Please choose from the following:\n"
-      expected << ":\n"
-      expected << "1. Play a new game\n"
-      expected << "2. View score dashboard\n"
-      expected << "3. Review missed questions\n"
-      expected << "4. Administrator activities\n"
-      expected << "5. Exit\n"
+      expected << main_menu
       pipe.puts "4"
       expected << "?  Administrator Panel\n"
       expected << "Please choose from the following:\n"
@@ -189,14 +129,7 @@ class TestAdminAdd < Minitest::Test
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|
-      expected << "Welcome to Flashcards!\n"
-      expected << "Please choose from the following:\n"
-      expected << ":\n"
-      expected << "1. Play a new game\n"
-      expected << "2. View score dashboard\n"
-      expected << "3. Review missed questions\n"
-      expected << "4. Administrator activities\n"
-      expected << "5. Exit\n"
+      expected << main_menu
       pipe.puts "4"
       expected << "?  Administrator Panel\n"
       expected << "Please choose from the following:\n"
@@ -221,14 +154,7 @@ class TestAdminAdd < Minitest::Test
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|
-      expected << "Welcome to Flashcards!\n"
-      expected << "Please choose from the following:\n"
-      expected << ":\n"
-      expected << "1. Play a new game\n"
-      expected << "2. View score dashboard\n"
-      expected << "3. Review missed questions\n"
-      expected << "4. Administrator activities\n"
-      expected << "5. Exit\n"
+      expected << main_menu
       pipe.puts "4"
       expected << "?  Administrator Panel\n"
       expected << "Please choose from the following:\n"

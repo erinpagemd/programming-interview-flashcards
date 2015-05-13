@@ -5,14 +5,7 @@ class TestAdminReviewAllQuestions < Minitest::Test
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|
-      expected << "Welcome to Flashcards!\n"
-      expected << "Please choose from the following:\n"
-      expected << ":\n"
-      expected << "1. Play a new game\n"
-      expected << "2. View score dashboard\n"
-      expected << "3. Review missed questions\n"
-      expected << "4. Administrator activities\n"
-      expected << "5. Exit\n"
+      expected << main_menu
       pipe.puts "4"
       expected << "?  Administrator Panel\n"
       expected << "Please choose from the following:\n"
