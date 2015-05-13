@@ -396,7 +396,7 @@ I want to change the category in the database
 User inputs
 ```
 $ ./flash_cards
-    ```
+```
 
 > Welcome to Flashcards!
 
@@ -409,6 +409,7 @@ $ ./flash_cards
 > 3. Review missed questions
 
 > 4. Administrator activities
+
 
 User inputs
 ```
@@ -428,11 +429,13 @@ $ 4
 
 > 5. Return to main menu
 
+
 User inputs
 ```
 2
 ```
 > QuestionId of question to edit
+
 
 User inputs
 ```
@@ -440,12 +443,14 @@ User inputs
 ```
 > Part of question to edit (Category, Q, A, B, C, Correct)
 
+
 User inputs
 ```
 Category
 ```
 
 > What is the new category for this question?
+
 
 User inputs
 ```
