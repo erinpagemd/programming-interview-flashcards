@@ -217,6 +217,7 @@ class TestAdminAdd < Minitest::Test
   end
 
   def test_admin_menu_wrong_input
+    skip
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|

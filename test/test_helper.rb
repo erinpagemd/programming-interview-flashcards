@@ -8,3 +8,6 @@ Dir["./lib/*.rb"].each { |f| require f }
 
 reporter_options = {color: true}
 Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(reporter_options)]
+
+def main_menu
+end

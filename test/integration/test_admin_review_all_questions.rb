@@ -23,7 +23,7 @@ class TestAdminReviewAllQuestions < Minitest::Test
       expected << "4. See a list of all current questions\n"
       expected << "5. Return to main menu\n"
       pipe.puts "4"
-      expected << "?  See a list of all current questions\n"
+      expected << "?  No questions found.\n"
       pipe.close_write
       shell_output = pipe.read
     end
