@@ -2,6 +2,7 @@
 source "https://rubygems.org"
 
 # gem "rails"
+gem 'highline'
 gem 'minitest'
 gem 'minitest-reporters'
-gem 'highline'
+gem 'sqlite3'
