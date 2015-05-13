@@ -26,198 +26,234 @@ In order to perform well at programming interviews
 
 I want to practice potential interview questions and review/track my results
 
-    #### Scenarios
+#### Scenarios
 
-    ##### Start Playing
+##### Start Playing
 
-    ####### Usage Example
+####### Usage Example
 
-    In order to start a game
+In order to start a game
 
-    I want to go to the console, run the program, and choose to start a new game
+I want to go to the console, run the program, and choose to start a new game
 
-    Open the terminal and cd into the game directory.
+Open the terminal and cd into the game directory.
 
-    User inputs
-    ```
-    $ ./flash_cards
-    ```
+User inputs
+```
+$ ./flash_cards
+```
 
-    > Welcome to Flashcards!
+> Welcome to Flashcards!
 
-    > Please choose from the following:
+> Please choose from the following:
 
-    > 1. Play a new game
+> 1. Play a new game
 
-    > 2. View score dashboard
+> 2. View score dashboard
 
-    > 3. Review missed questions
+> 3. Review missed questions
 
-    > 4. Administrator activities
+> 4. Administrator activities
 
-    User inputs
-    ```
-    $ 1
-    ```
+User inputs
+```
+$ 1
+```
 
-    > Question 1 of 10
+> Question 1 of 10
 
-    > Score: 0
+> Score: 0
 
-    > QuestionId: 5
+> QuestionId: 5
 
-    > Category: Ruby
+> Category: Ruby
 
-    > Q: How does a symbol differ from a string?
+> Q: How does a symbol differ from a string?
 
-    > a. Symbols are immutable and reusable, retaining the same object_id.
+> a. Symbols are immutable and reusable, retaining the same object_id.
 
-    > b. Strings are immutable and reusable, retaining the same object_id.
+> b. Strings are immutable and reusable, retaining the same object_id.
 
-    > c. Symbols and strings do not differ.
+> c. Symbols and strings do not differ.
 
-    ####### Acceptance Criteria
+####### Acceptance Criteria
 
-    * When the program is run, it shows a main menu
+* When the program is run, it shows a main menu
 
-    * After selecting to play a game from the menu, the program shows the first question.
+* After selecting to play a game from the menu, the program shows the first question.
 
 
-    ##### View the Score Board
+##### View the Score Board
 
-    ####### Usage Example
+####### Usage Example
 
-    In order to set goals on performance
+In order to set goals on performance
 
-    I want to view a summary of my scores over time
+I want to view a summary of my scores over time
 
-    User inputs
-    ```
-    $ ./flash_cards
-    ```
+User inputs
+```
+$ ./flash_cards
+```
 
-    > Welcome to Flashcards!
+> Welcome to Flashcards!
 
-    > Please choose from the following:
+> Please choose from the following:
 
-    > 1. Play a new game
+> 1. Play a new game
 
-    > 2. View score dashboard
+> 2. View score dashboard
 
-    > 3. Review missed questions
+> 3. Review missed questions
 
-    > 4. Administrator activities
+> 4. Administrator activities
 
-    User inputs
-    ```
-    $ 2
-    ```
+User inputs
+```
+$ 2
+```
 
-    > Score Dashboard
+> Score Dashboard
 
-    > Number of games played: 10
+> Number of games played: 10
 
-    > Average Score: 40%
+> Average Score: 40%
 
-    > Best Score: 100%
+> Best Score: 100%
 
-    > Enter 1 to go back
+> Enter 1 to go back
 
-    user inputs
-    ```
-    1
-    ```
+user inputs
+```
+1
+```
 
-    > Welcome to Flashcards!
+> Welcome to Flashcards!
 
-    > Please choose from the following:
+> Please choose from the following:
 
-    > 1. Play a new game
+> 1. Play a new game
 
-    > 2. View score dashboard
+> 2. View score dashboard
 
-    > 3. Review missed questions
+> 3. Review missed questions
 
-    > 4. Administrator activities
+> 4. Administrator activities
 
-    ####### Acceptance Criteria
+####### Acceptance Criteria
 
-    * The program runs and shows a main menu
+* The program runs and shows a main menu
 
-    * The program outputs a score dashboard when prompted
+* The program outputs a score dashboard when prompted
 
-    * User returns to the main menu
+* User returns to the main menu
 
-    ##### Review Missed Questions
+##### Review Missed Questions
 
-    ####### Usage Example
+####### Usage Example
 
-    In order to increase my knowledge base
+In order to increase my knowledge base
 
-    I want to familiarize myself with questions I previously missed
+I want to familiarize myself with questions I previously missed
 
-    User inputs
-    ```
-    $ ./flash_cards
-    ```
+User inputs
+```
+$ ./flash_cards
+```
 
-    > Welcome to Flashcards!
+> Welcome to Flashcards!
 
-    > Please choose from the following:
+> Please choose from the following:
 
-    > 1. Play a new game
+> 1. Play a new game
 
-    > 2. View score dashboard
+> 2. View score dashboard
 
-    > 3. Review missed questions
+> 3. Review missed questions
 
-    > 4. Administrator activities
+> 4. Administrator activities
 
-    User inputs
-    ```
-    $ 3
-    ```
+User inputs
+```
+$ 3
+```
 
-    > Missed Questions
+> Missed Questions
 
-    > Q: How does a symbol differ from a string?
+> Q: How does a symbol differ from a string?
 
-    > Missed 4 times
+> Missed 4 times
 
-    > Category: Ruby
+> Category: Ruby
 
-    > Q: What is a Proc?
+> Q: What is a Proc?
 
-    > Missed 1 time
+> Missed 1 time
 
-    > Category: Ruby
+> Category: Ruby
 
-    > Enter 1 to go back
+> Enter 1 to go back
 
-    user inputs
-    ```
-    1
-    ```
+user inputs
+```
+1
+```
 
-    > Welcome to Flashcards!
+> Welcome to Flashcards!
 
-    > Please choose from the following:
+> Please choose from the following:
 
-    > 1. Play a new game
+> 1. Play a new game
 
-    > 2. View score dashboard
+> 2. View score dashboard
 
-    > 3. Review missed questions
+> 3. Review missed questions
 
-    > 4. Administrator activities
+> 4. Administrator activities
 
-    ####### Acceptance Criteria
+####### Acceptance Criteria
 
-    * Program shows a main menu after running
+* Program shows a main menu after running
 
-    * Program outputs a list of missed questions when prompted
+* Program outputs a list of missed questions when prompted
 
-    * Program returns to the main menu
+* Program returns to the main menu
+
+####### Exit the program
+
+In order to exit the program
+
+I want to close the program
+
+User inputs
+```
+$ ./flash_cards
+```
+
+> Welcome to Flashcards!
+
+> Please choose from the following:
+
+> 1. Play a new game
+
+> 2. View score dashboard
+
+> 3. Review missed questions
+
+> 4. Administrator activities
+
+> 5. Exit
+
+User inputs
+```
+$ 5
+```
+
+> Closing program
+
+
+####### Acceptance Criteria
+
 
 ### User: Administrator
 
@@ -227,435 +263,435 @@ In order to improve readability and user experience
 
 I want to add, edit, and delete the questions, answers, and expected responses.
 
-    #### Scenarios
+#### Scenarios
 
-    ##### Add Question Unit
+##### Add Question Unit
 
-    ####### Usage Example
+####### Usage Example
 
-    In order to keep the game fresh
+In order to keep the game fresh
 
-    I want to add new questions to the game.
+I want to add new questions to the game.
 
-    User inputs
-    ```
-    $ ./flash_cards
-    ```
+User inputs
+```
+$ ./flash_cards
+```
 
-    > Welcome to Flashcards!
+> Welcome to Flashcards!
 
-    > Please choose from the following:
+> Please choose from the following:
 
-    > 1. Play a new game
+> 1. Play a new game
 
-    > 2. View score dashboard
+> 2. View score dashboard
 
-    > 3. Review missed questions
+> 3. Review missed questions
 
-    > 4. Administrator activities
+> 4. Administrator activities
 
-    User inputs
-    ```
-    $ 4
-    ```
+User inputs
+```
+$ 4
+```
 
-    > Administrator Panel
+> Administrator Panel
 
-    > Please choose from the following:
+> Please choose from the following:
 
-    > 1. Add a new question
+> 1. Add a new question
 
-    > 2. Edit an existing question
+> 2. Edit an existing question
 
-    > 3. Delete a question
+> 3. Delete a question
 
-    > 4. See a list of all current questions
+> 4. See a list of all current questions
 
-    > 5. Return to main menu
+> 5. Return to main menu
 
-    User inputs
-    ```
-    1
-    ```
+User inputs
+```
+1
+```
 
-    > Add a question!
+> Add a question!
 
-    > What category is this question (ruby, css, javascript, etc)?
+> What category is this question (ruby, css, javascript, etc)?
 
-    User inputs
-    ```
-    ruby
-    ```
+User inputs
+```
+ruby
+```
 
-    > Please enter the question.
+> Please enter the question.
 
-    User inputs
-    ```
-    How does a symbol differ from a string?
-    ```
+User inputs
+```
+How does a symbol differ from a string?
+```
 
-    > What is response choice 'a' for this question?
+> What is response choice 'a' for this question?
 
-    User inputs
-    ```
-    Symbols are immutable and reusable, retaining the same object_id.
-    ```
+User inputs
+```
+Symbols are immutable and reusable, retaining the same object_id.
+```
 
-    > What is response choice 'b' for this question?
+> What is response choice 'b' for this question?
 
-    User inputs
-    ```
-    Strings are immutable and reusable, retaining the same object_id.
-    ```
+User inputs
+```
+Strings are immutable and reusable, retaining the same object_id.
+```
 
-    > What is response choice 'c' for this question?
+> What is response choice 'c' for this question?
 
-    User inputs
-    ```
-    Symbols and strings do not differ.
-    ```
+User inputs
+```
+Symbols and strings do not differ.
+```
 
-    > What is the correct response choice for this question (a,b,c)?
+> What is the correct response choice for this question (a,b,c)?
 
-    User inputs
-    ```
-    a
-    ```
+User inputs
+```
+a
+```
 
-    > New question added!!
+> New question added!!
 
-    > Administrator Panel
+> Administrator Panel
 
-    > Please choose from the following:
+> Please choose from the following:
 
-    > 1. Add a new question
+> 1. Add a new question
 
-    > 2. Edit an existing question
+> 2. Edit an existing question
 
-    > 3. Delete a question
+> 3. Delete a question
 
-    > 4. See a list of all current questions
+> 4. See a list of all current questions
 
-    > 5. Return to main menu
+> 5. Return to main menu
 
-    ####### Acceptance Criteria
+####### Acceptance Criteria
 
-    * User can go to a Administrator Panel
+* User can go to a Administrator Panel
 
-    * User can choose to add a question
+* User can choose to add a question
 
-    * Program walks through adding the elements of a question
+* Program walks through adding the elements of a question
 
-    * Program assigns a unique ID to the question
+* Program assigns a unique ID to the question
 
 
-    ##### Edit Question Unit
+##### Edit Question Unit
 
-    ####### Usage Example
+####### Usage Example
 
-    In order to correct an improper question category
+In order to correct an improper question category
 
-    I want to change the category in the database
+I want to change the category in the database
 
-    User inputs
-    ```
-    $ ./flash_cards
-        ```
-
-    > Welcome to Flashcards!
-
-    > Please choose from the following:
-
-    > 1. Play a new game
-
-    > 2. View score dashboard
-
-    > 3. Review missed questions
-
-    > 4. Administrator activities
-
-    User inputs
-    ```
-    $ 4
-    ```
-    > Administrator Panel
-
-    > Please choose from the following:
-
-    > 1. Add a new question
-
-    > 2. Edit an existing question
-
-    > 3. Delete a question
-
-    > 4. See a list of all current questions
-
-    > 5. Return to main menu
-
-    User inputs
-    ```
-    2
-    ```
-    > QuestionId of question to edit
-
-    User inputs
-    ```
-    5
-    ```
-    > Part of question to edit (Category, Q, A, B, C, Correct)
-
-    User inputs
-    ```
-    Category
+User inputs
+```
+$ ./flash_cards
     ```
 
-    > What is the new category for this question?
+> Welcome to Flashcards!
 
-    User inputs
-    ```
-    ruby
-    ```
+> Please choose from the following:
 
-    > Question edited!
+> 1. Play a new game
 
-    > Administrator Panel
+> 2. View score dashboard
 
-    > Please choose from the following:
+> 3. Review missed questions
 
-    > 1. Add a new question
+> 4. Administrator activities
 
-    > 2. Edit an existing question
+User inputs
+```
+$ 4
+```
+> Administrator Panel
 
-    > 3. Delete a question
+> Please choose from the following:
 
-    > 4. See a list of all current questions
+> 1. Add a new question
 
-    > 5. Return to main menu
+> 2. Edit an existing question
 
-    ####### Acceptance Criteria
+> 3. Delete a question
 
-    * From the Administrator Panel, user can select to edit an existing question
+> 4. See a list of all current questions
 
-    * Program prompts user for QuestionId and part of the question to edit
+> 5. Return to main menu
 
-    * Program edits the question and returns to the Administrator Panel
+User inputs
+```
+2
+```
+> QuestionId of question to edit
 
-    ##### Delete Question Unit
+User inputs
+```
+5
+```
+> Part of question to edit (Category, Q, A, B, C, Correct)
 
-    ####### Usage Example
+User inputs
+```
+Category
+```
 
-    In order to remove duplicate questions
+> What is the new category for this question?
 
-    I want to delete a question from the database
+User inputs
+```
+ruby
+```
 
-    User inputs
-    ```
-    $ Flashcards
-    ```
+> Question edited!
 
-    > Welcome to Flashcards!
+> Administrator Panel
 
-    > Please choose from the following:
+> Please choose from the following:
 
-    > 1. Play a new game
+> 1. Add a new question
 
-    > 2. View score dashboard
+> 2. Edit an existing question
 
-    > 3. Review missed questions
+> 3. Delete a question
 
-    > 4. Administrator activities
+> 4. See a list of all current questions
 
-    User inputs
-    ```
-    $ 4
-    ```
+> 5. Return to main menu
 
-    > Administrator Panel
+####### Acceptance Criteria
 
-    > Please choose from the following:
+* From the Administrator Panel, user can select to edit an existing question
 
-    > 1. Add a new question
+* Program prompts user for QuestionId and part of the question to edit
 
-    > 2. Edit an existing question
+* Program edits the question and returns to the Administrator Panel
 
-    > 3. Delete a question
+##### Delete Question Unit
 
-    > 4. See a list of all current questions
+####### Usage Example
 
-    > 5. Return to main menu
+In order to remove duplicate questions
 
-    User inputs
-    ```
-    3
-    ```
+I want to delete a question from the database
 
-    > QuestionId of question to delete
+User inputs
+```
+$ Flashcards
+```
 
-    User inputs
-    ```
-    5
-    ```
+> Welcome to Flashcards!
 
-    > Question deleted!
+> Please choose from the following:
 
-    > Administrator Panel
+> 1. Play a new game
 
-    > Please choose from the following:
+> 2. View score dashboard
 
-    > 1. Add a new question
+> 3. Review missed questions
 
-    > 2. Edit an existing question
+> 4. Administrator activities
 
-    > 3. Delete a question
+User inputs
+```
+$ 4
+```
 
-    > 4. See a list of all current questions
+> Administrator Panel
 
-    > 5. Return to main menu
+> Please choose from the following:
 
-    ####### Acceptance Criteria
+> 1. Add a new question
 
-    * From the Administrator Panel, user can choose to delete an existing question
+> 2. Edit an existing question
 
-    * Program prompts user for the QuestionId of the question to be deleted
+> 3. Delete a question
 
-    * User enters the corresponding QuestionId and the program deletes the question
+> 4. See a list of all current questions
 
-    * User is returned to the Administrator Panel
+> 5. Return to main menu
 
-    ##### Review all questions
+User inputs
+```
+3
+```
 
-    ####### Usage Example
+> QuestionId of question to delete
 
-    In order to find QuestionId of the question it edit or delete
+User inputs
+```
+5
+```
 
-    I want to review of a list of all questions and their answers
+> Question deleted!
 
-    User inputs
-    ```
-    $ ./flash_cards
-    ```
+> Administrator Panel
 
-    > Welcome to Flashcards!
+> Please choose from the following:
 
-    > Please choose from the following:
+> 1. Add a new question
 
-    > 1. Play a new game
+> 2. Edit an existing question
 
-    > 2. View score dashboard
+> 3. Delete a question
 
-    > 3. Review missed questions
+> 4. See a list of all current questions
 
-    > 4. Administrator activities
+> 5. Return to main menu
 
-    User inputs
-    ```
-    $ 4
-    ```
-    > Administrator Panel
+####### Acceptance Criteria
 
-    > Please choose from the following:
+* From the Administrator Panel, user can choose to delete an existing question
 
-    > 1. Add a new question
+* Program prompts user for the QuestionId of the question to be deleted
 
-    > 2. Edit an existing question
+* User enters the corresponding QuestionId and the program deletes the question
 
-    > 3. Delete a question
+* User is returned to the Administrator Panel
 
-    > 4. See a list of all current questions
+##### Review all questions
 
-    > 5. Return to main menu
+####### Usage Example
 
-    User inputs
-    ```
-    4
-    ```
-    > list of questions shows with Q, Answers, Correct, Category
+In order to find QuestionId of the question it edit or delete
 
-    > Administrator Panel
+I want to review of a list of all questions and their answers
 
-    > Please choose from the following:
+User inputs
+```
+$ ./flash_cards
+```
 
-    > 1. Add a new question
+> Welcome to Flashcards!
 
-    > 2. Edit an existing question
+> Please choose from the following:
 
-    > 3. Delete a question
+> 1. Play a new game
 
-    > 4. See a list of all current questions
+> 2. View score dashboard
 
-    > 5. Return to main menu
+> 3. Review missed questions
 
-    ####### Acceptance Criteria
+> 4. Administrator activities
 
-    * From the Administrator Panel, user can choose to see a list of all questions
+User inputs
+```
+$ 4
+```
+> Administrator Panel
 
-    * Program outputs a list of each question containing: question body, each choice, correct answer, category
+> Please choose from the following:
 
-    * User is returned to the Administrator Panel
+> 1. Add a new question
 
-    ##### Return to main menu
+> 2. Edit an existing question
 
-    ####### Usage Example
+> 3. Delete a question
 
-    In order to play the game instead of admin activities
+> 4. See a list of all current questions
 
-    I want to return to the main menu
+> 5. Return to main menu
 
-    User inputs
-    ```
-    $ ./flash_cards
-    ```
+User inputs
+```
+4
+```
+> list of questions shows with Q, Answers, Correct, Category
 
-    > Welcome to Flashcards!
+> Administrator Panel
 
-    > Please choose from the following:
+> Please choose from the following:
 
-    > 1. Play a new game
+> 1. Add a new question
 
-    > 2. View score dashboard
+> 2. Edit an existing question
 
-    > 3. Review missed questions
+> 3. Delete a question
 
-    > 4. Administrator activities
+> 4. See a list of all current questions
 
-    User inputs
-    ```
-    $ 4
-    ```
-    > Administrator Panel
+> 5. Return to main menu
 
-    > Please choose from the following:
+####### Acceptance Criteria
 
-    > 1. Add a new question
+* From the Administrator Panel, user can choose to see a list of all questions
 
-    > 2. Edit an existing question
+* Program outputs a list of each question containing: question body, each choice, correct answer, category
 
-    > 3. Delete a question
+* User is returned to the Administrator Panel
 
-    > 4. See a list of all current questions
+##### Return to main menu
 
-    > 5. Return to main menu
+####### Usage Example
 
-    User inputs
-    ```
-    5
-    ```
+In order to play the game instead of admin activities
 
-    > Welcome to Flashcards!
+I want to return to the main menu
 
-    > Please choose from the following:
+User inputs
+```
+$ ./flash_cards
+```
 
-    > 1. Play a new game
+> Welcome to Flashcards!
 
-    > 2. View score dashboard
+> Please choose from the following:
 
-    > 3. Review missed questions
+> 1. Play a new game
 
-    > 4. Administrator activities
+> 2. View score dashboard
 
-    ####### Acceptance Criteria
+> 3. Review missed questions
 
-    * From the Administrator Panel, user returns to the main menu
+> 4. Administrator activities
+
+User inputs
+```
+$ 4
+```
+> Administrator Panel
+
+> Please choose from the following:
+
+> 1. Add a new question
+
+> 2. Edit an existing question
+
+> 3. Delete a question
+
+> 4. See a list of all current questions
+
+> 5. Return to main menu
+
+User inputs
+```
+5
+```
+
+> Welcome to Flashcards!
+
+> Please choose from the following:
+
+> 1. Play a new game
+
+> 2. View score dashboard
+
+> 3. Review missed questions
+
+> 4. Administrator activities
+
+####### Acceptance Criteria
+
+* From the Administrator Panel, user returns to the main menu
 
 ##### Scenario 273
 
