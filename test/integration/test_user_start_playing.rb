@@ -7,7 +7,8 @@ class TestUserStartNewGame < Minitest::Test
     IO.popen('./flash_cards', 'r+') do |pipe|
       expected << main_menu
       pipe.puts "1"
-      expected << "?  Question 1 of 10\n"
+      expected << after_input
+      expected << "Question 1 of 10\n"
       expected << "Score: 0\n"
       expected << "QuestionId: 5\n"
       expected << "Category: Ruby\n"

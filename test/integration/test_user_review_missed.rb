@@ -8,7 +8,8 @@ class TestReviewMissedQuestions < Minitest::Test
     IO.popen('./flash_cards', 'r+') do |pipe|
       expected << main_menu
       pipe.puts "3"
-      expected << "?  Missed Questions\n"
+      expected << after_input
+      expected << "Missed Questions\n"
       expected << "How does a symbol differ from a string?\n"
       expected << "Missed 4 times\n"
       expected << "Category: Ruby\n"

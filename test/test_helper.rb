@@ -30,3 +30,7 @@ def admin_menu
   "4. See a list of all current questions\n" +
   "5. Return to main menu\n"
 end
+
+def after_input
+  "?  "
+end

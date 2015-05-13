@@ -36,7 +36,7 @@ end
 def admin_menu
   say(choose do |menu|
     questions_controller = QuestionsController.new
-    
+
     menu.header = "Administrator Panel\n" + "Please choose from the following:\n"
     menu.choice("Add a new question")
     menu.choice("Edit an existing question")
@@ -56,7 +56,10 @@ def main_menu
     menu.choice("View score dashboard") { score_dashboard }
     menu.choice("Review missed questions") { missed_questions }
     menu.choice("Administrator activities") { admin_menu }
-    menu.choice("Exit") { say("Closing program") }
+    menu.choice("Exit") do
+      say("Closing program")
+      exit
+    end
   end
 end
 

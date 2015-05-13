@@ -7,10 +7,11 @@ class TestAdminDelete < Minitest::Test
     IO.popen('./flash_cards', 'r+') do |pipe|
       expected << main_menu
       pipe.puts "4"
-      expected << "?  "
+      expected << after_input
       expected << admin_menu
       pipe.puts "3"
-      expected << "?  Delete a question\n"
+      expected << after_input
+      expected << "Delete a question\n"
       pipe.close_write
       shell_output = pipe.read
     end

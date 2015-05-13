@@ -7,7 +7,8 @@ class TestViewScoreboard < Minitest::Test
     IO.popen('./flash_cards', 'r+') do |pipe|
       expected << main_menu
       pipe.puts "2"
-      expected << "?  Score Dashboard\n"
+      expected << after_input
+      expected << "Score Dashboard\n"
       expected << "Number of games played: 10\n"
       expected << "Average Score: 40%\n"
       expected << "Best Score: 100%\n"

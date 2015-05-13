@@ -19,11 +19,17 @@ class TestAdminAdd < Minitest::Test
     IO.popen('./flash_cards', 'r+') do |pipe|
       expected << main_menu
       pipe.puts "10"
-      expected << "?  You must choose one of [1, 2, 3, 4, 5, Play a new game, View score dashboard, Review missed questions, Administrator activities, Exit].\n"
+      expected << after_input
+      expected << "You must choose one of [1, 2, 3, 4, 5, Play a new game, View score dashboard, Review missed questions, Administrator activities, Exit].\n"
       pipe.puts "4"
-      expected << "?  "
+      expected << after_input
       expected << admin_menu
-      expected << "?  "
+      pipe.puts "5"
+      expected << after_input
+      expected << main_menu
+      pipe.puts "5"
+      expected << after_input
+      expected << "Closing program\n"
       pipe.close_write
       shell_output = pipe.read
     end
@@ -36,11 +42,17 @@ class TestAdminAdd < Minitest::Test
     IO.popen('./flash_cards', 'r+') do |pipe|
       expected << main_menu
       pipe.puts " "
-      expected << "?  Ambiguous choice.  Please choose one of [1, 2, 3, 4, 5, Play a new game, View score dashboard, Review missed questions, Administrator activities, Exit].\n"
+      expected << after_input
+      expected << "Ambiguous choice.  Please choose one of [1, 2, 3, 4, 5, Play a new game, View score dashboard, Review missed questions, Administrator activities, Exit].\n"
       pipe.puts "4"
-      expected << "?  "
+      expected << after_input
       expected << admin_menu
-      expected << "?  "
+      pipe.puts "5"
+      expected << after_input
+      expected << main_menu
+      pipe.puts "5"
+      expected << after_input
+      expected << "Closing program\n"
       pipe.close_write
       shell_output = pipe.read
     end
@@ -55,9 +67,14 @@ class TestAdminAdd < Minitest::Test
       pipe.puts ""
       expected << "?  Ambiguous choice.  Please choose one of [1, 2, 3, 4, 5, Play a new game, View score dashboard, Review missed questions, Administrator activities, Exit].\n"
       pipe.puts "4"
-      expected << "?  "
+      expected << after_input
       expected << admin_menu
-      expected << "?  "
+      pipe.puts "5"
+      expected << after_input
+      expected << main_menu
+      pipe.puts "5"
+      expected << after_input
+      expected << "Closing program\n"
       pipe.close_write
       shell_output = pipe.read
     end
@@ -70,9 +87,14 @@ class TestAdminAdd < Minitest::Test
     IO.popen('./flash_cards', 'r+') do |pipe|
       expected << main_menu
       pipe.puts "4"
-      expected << "?  "
+      expected << after_input
       expected << admin_menu
-      expected << "?  "
+      pipe.puts "5"
+      expected << after_input
+      expected << main_menu
+      pipe.puts "5"
+      expected << after_input
+      expected << "Closing program\n"
       pipe.close_write
       shell_output = pipe.read
     end
@@ -85,10 +107,11 @@ class TestAdminAdd < Minitest::Test
     IO.popen('./flash_cards', 'r+') do |pipe|
       expected << main_menu
       pipe.puts "4"
-      expected << "?  "
+      expected << after_input
       expected << admin_menu
       pipe.puts "1"
-      expected << "?  Add a new question\n"
+      expected << after_input
+      expected << "Add a new question\n"
       pipe.close_write
       shell_output = pipe.read
     end
@@ -101,11 +124,13 @@ class TestAdminAdd < Minitest::Test
     IO.popen('./flash_cards', 'r+') do |pipe|
       expected << main_menu
       pipe.puts "4"
-      expected << "?  "
+      expected << after_input
       expected << admin_menu
       pipe.puts ""
       expected << "?  Ambiguous choice.  Please choose one of [1, 2, 3, 4, 5, Add a new question, Edit an existing question, Delete a question, See a list of all current questions, Return to main menu].\n"
-      expected << "?  "
+      pipe.puts "1"
+      expected << after_input
+      expected << "Add a new question\n"
       pipe.close_write
       shell_output = pipe.read
     end
@@ -120,11 +145,13 @@ class TestAdminAdd < Minitest::Test
     IO.popen('./flash_cards', 'r+') do |pipe|
       expected << main_menu
       pipe.puts "4"
-      expected << "?  "
+      expected << after_input
       expected << admin_menu
       pipe.puts "90"
       expected << "?  You must choose one of [1, 2, 3, 4, 5, Add a new question, Edit an existing question, Delete a question, See a list of all current quesitons, Return to main menu]. \n"
-      expected << "?  "
+      pipe.puts "1"
+      expected << after_input
+      expected << "Add a new question\n"
       pipe.close_write
       shell_output = pipe.read
     end
