@@ -14,12 +14,14 @@ describe QuestionsController do
       assert_equal 1, Question.count
     end
 
-    it "should not add a question all spaces" do
+    it "should not add a question body all spaces" do
       controller.add("          ")
       assert_equal 0, Question.count
     end
 
-    it "should only add scenarios that make sense" do
+    it "should only add a question body that makes sense" do
+      controller.add("7777777")
+      assert_equal 0, Question.count
     end
   end
 
