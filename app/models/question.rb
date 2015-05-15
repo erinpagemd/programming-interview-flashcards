@@ -4,6 +4,12 @@ class Question
 
   def initialize(body) # = nil
     self.body = body
+    if body.nil? or body.empty? or /^\d_$/.match(body)
+      @errors = "Not a valid question body."
+    else
+      DataStore.execute("INSERT INTO questions (body) VALUES (?)", body)
+      # @id = DataStore.execute("SELECT last_insert_rowid()")[0]['last_insert_rowid()']
+    end
   end
 
   def self.all

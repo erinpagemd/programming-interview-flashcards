@@ -1,5 +1,7 @@
 require 'sqlite3'
 
+# where are tests for this??
+
 class DataStore
 
   def self.load_structure

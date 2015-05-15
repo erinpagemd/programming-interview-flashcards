@@ -11,16 +11,16 @@ describe Question do
         assert_equal 0, Question.count
       end
     end
-    # describe "if there are questions" do
-    #   before do
-    #     create_question("Bob")
-    #     create_question("Sally")
-    #     create_question("Amanda")
-    #   end
-    #   it "should return the correct count" do
-    #     assert_equal 3, Question.count
-    #   end
-    # end
+    describe "if there are questions" do
+      before do
+        create_question("Bob")
+        create_question("Sally")
+        create_question("Amanda")
+      end
+      it "should return the correct count" do
+        assert_equal 3, Question.count
+      end
+    end
   end
 
   describe ".initialize" do

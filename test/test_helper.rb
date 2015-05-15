@@ -9,9 +9,11 @@ ENV["TEST"] = "true"
 reporter_options = {color: true}
 Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(reporter_options)]
 
-def setup
-  DataStore.load_structure
-  DataStore.execute("DELETE FROM questions")
+class Minitest::Test
+  def setup
+    DataStore.load_structure
+    DataStore.execute("DELETE FROM questions")
+  end
 end
 
 def create_question(body)

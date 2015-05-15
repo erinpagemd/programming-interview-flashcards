@@ -7,17 +7,13 @@ class QuestionsController
   end
 
   def add(body)
+    body_cleaned = body.strip
+    question = Question.new(body_cleaned)
+    # if scenario.save
+    #   "\"#{name}\" has been added\n"
+    # else
+    #   question.errors
+    # end
   end
-
-  # def add(name)
-  #   # add a new question??
-  #   name_cleaned = name.strip
-  #   question = Question.new(name_cleaned)
-  #   if scenario.save
-  #     "\"#{name}\" has been added\n"
-  #   else
-  #     question.errors
-  #   end
-  # end
 
 end
