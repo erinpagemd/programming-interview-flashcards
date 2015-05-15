@@ -4,10 +4,19 @@ require 'bundler/setup'
 require 'minitest/reporters'
 Dir["./app/**/*.rb"].each { |f| require f }
 Dir["./lib/*.rb"].each { |f| require f }
-
+ENV["TEST"] = "true"
 
 reporter_options = {color: true}
 Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(reporter_options)]
+
+def setup
+  DataStore.load_structure
+  DataStore.execute("DELETE FROM questions")
+end
+
+def create_question(body)
+  DataStore.execute("INSERT INTO questions (body) VALUES (?)", body)
+end
 
 def main_menu
   "Welcome to Flashcards!\n" +

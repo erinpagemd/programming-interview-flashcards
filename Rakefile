@@ -12,6 +12,6 @@ end
 
 desc 'bootstrap database structure'
 task :bootstrap_database do
-  require_relative 'lib/database'
-  Database.load_structure
+  require_relative 'lib/data_store'
+  DataStore.load_structure
 end

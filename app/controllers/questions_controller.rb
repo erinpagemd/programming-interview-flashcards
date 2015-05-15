@@ -6,8 +6,18 @@ class QuestionsController
     "No questions found.\n"
   end
 
-  def add(name)
-    # add a new question?? 
+  def add(body)
   end
+
+  # def add(name)
+  #   # add a new question??
+  #   name_cleaned = name.strip
+  #   question = Question.new(name_cleaned)
+  #   if scenario.save
+  #     "\"#{name}\" has been added\n"
+  #   else
+  #     question.errors
+  #   end
+  # end
 
 end
