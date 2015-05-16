@@ -6,9 +6,10 @@ class QuestionsController
     "No questions found.\n"
   end
 
-  def add(body)
-    body_cleaned = body.strip
-    question = Question.new(body_cleaned)
+  def add(category, body, choiceA, choiceB, answer)
+    category = category.strip
+    body = body.strip
+    question = Question.new(category, body, choiceA, choiceB, answer)
     # if scenario.save
     #   "\"#{name}\" has been added\n"
     # else

@@ -1,13 +1,18 @@
 class Question
   attr_reader :id, :errors
-  attr_accessor :body
+  attr_accessor :category, :body, :choice_a, :choice_b, :answer
 
-  def initialize(body) # = nil
+  def initialize(category, body, choiceA, choiceB, answer)
+    self.category = category
     self.body = body
+    self.choice_a = choiceA
+    self.choice_b = choiceB
+    self.answer = answer
+
     if body.nil? or body.empty? or /^\d/.match(body)
-      @errors = "Not a valid question body."
+      @errors = "Not a valid question."
     else
-      DataStore.execute("INSERT INTO questions (body) VALUES (?)", body)
+      DataStore.execute("INSERT INTO questions (category, body, choice_a, choice_b, answer) VALUES (?, ?, ?, ?, ?)", [@category, @body, @choice_a, @choice_b, @answer])
       # @id = DataStore.execute("SELECT last_insert_rowid()")[0]['last_insert_rowid()']
     end
   end

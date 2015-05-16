@@ -5,25 +5,31 @@ require 'sqlite3'
 class DataStore
 
   def self.load_structure
-    @@db = SQLite3::Database.new("db/flash_cards_test.sqlite")
+    environment = ENV["TEST"] ? "test" : "production"
+    database= "db/flash_cards_#{environment}.sqlite"
+    @@db = SQLite3::Database.new(database)
     @@db.execute <<-SQL
     CREATE TABLE IF NOT EXISTS questions (
       id integer PRIMARY KEY AUTOINCREMENT,
-      body varchar(255) NOT NULL
+      category varchar(255) NOT NULL,
+      body varchar(255) NOT NULL,
+      choice_a varchar(255) NOT NULL,
+      choice_b varchar(255) NOT NULL,
+      answer varchar(10) NOT NULL
     );
     SQL
   end
 
   def self.execute(*args)
-    initialize_database unless defined?(@@db)
+    load_structure unless defined?(@@db)
     @@db.execute(*args)
   end
 
-  def self.initialize_database
-    environment = ENV["TEST"] ? "test" : "production"
-    database= "db/flash_cards_#{environment}.sqlite"
-    @@db = SQLite3::Database.new(database)
-    # @@db.results_as_hash = true
-  end
+  # def self.initialize_database
+  #   environment = ENV["TEST"] ? "test" : "production"
+  #   database= "db/flash_cards_#{environment}.sqlite"
+  #   @@db = SQLite3::Database.new(database)
+  #   # @@db.results_as_hash = true
+  # end
 
 end
