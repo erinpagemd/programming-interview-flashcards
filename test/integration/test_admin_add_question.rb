@@ -174,25 +174,22 @@ class TestAdminAdd < Minitest::Test
     assert_equal expected, shell_output
   end
 
-  def test_add_question_category_input
+  def test_add_question_category_incorrect_input
   end
 
-  def test_add_question_q_input
+  def test_add_question_body_incorrect_input
   end
 
-  def test_add_question_a_input
+  def test_add_question_choiceA_incorrect_input
   end
 
-  def test_add_question_b_input
+  def test_add_question_choiceB_incorrect_input
   end
 
-  def test_add_question_c_input
+  def test_add_question_choiceC_incorrect_input
   end
 
-  def test_add_question_correct_input
-  end
-
-  def test_add_question_correct_wrong_input
+  def test_add_question_answer_incorrect_input
   end
 
   def test_returns_to_admin_menu_after_add_complete

@@ -18,6 +18,9 @@ def add_series
   question << "choice B: #{choiceB}\n"
   question << "answer: #{answer}"
 
+  questions_controller = QuestionsController.new
+  questions_controller.add(question)
+
   question
 end
 
