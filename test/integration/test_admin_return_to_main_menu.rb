@@ -3,7 +3,6 @@ require_relative '../test_helper'
 class TestReturnToMainMenu < Minitest::Test
 
   def test_admin_menu_option_5
-    skip
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|
@@ -14,7 +13,9 @@ class TestReturnToMainMenu < Minitest::Test
       pipe.puts "5"
       expected << after_input
       expected << main_menu
+      pipe.puts "5"
       expected << after_input
+      expected << "Closing program\n"
       pipe.close_write
       shell_output = pipe.read
     end

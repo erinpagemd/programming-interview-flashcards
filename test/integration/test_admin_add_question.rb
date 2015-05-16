@@ -134,7 +134,6 @@ class TestAdminAdd < Minitest::Test
   end
 
   def test_admin_menu_no_input
-    skip
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|
@@ -143,10 +142,26 @@ class TestAdminAdd < Minitest::Test
       expected << after_input
       expected << admin_menu
       pipe.puts ""
-      expected << "?  Ambiguous choice.  Please choose one of [1, 2, 3, 4, 5, Add a new question, Edit an existing question, Delete a question, See a list of all current questions, Return to main menu].\n"
+      expected << after_input
+      expected << "Ambiguous choice.  Please choose one of [1, 2, 3, 4, 5, Add a new question, Edit an existing question, Delete a question, See a list of all current questions, Return to main menu].\n"
       pipe.puts "1"
       expected << after_input
-      expected << "Add a new question\n"
+      expected << "What is the category of the question?\n"
+      pipe.puts "css"
+      expected << "What is the body of the question?\n"
+      pipe.puts "The id selector is used to specify a style for:"
+      expected << "What is choice A for this question?\n"
+      pipe.puts "single, common element"
+      expected << "What is choice B for this question?\n"
+      pipe.puts "single, unique element"
+      expected << "What is the correct answer for this question?\n"
+      pipe.puts "b"
+      expected << "Question:\n"
+      expected << "category: css\n"
+      expected << "body: The id selector is used to specify a style for:\n"
+      expected << "choice A: single, common element\n"
+      expected << "choice B: single, unique element\n"
+      expected << "answer: b\n"
       pipe.close_write
       shell_output = pipe.read
     end
@@ -164,10 +179,14 @@ class TestAdminAdd < Minitest::Test
       expected << after_input
       expected << admin_menu
       pipe.puts "90"
-      expected << "?  You must choose one of [1, 2, 3, 4, 5, Add a new question, Edit an existing question, Delete a question, See a list of all current quesitons, Return to main menu]. \n"
-      pipe.puts "1"
       expected << after_input
-      expected << "Add a new question\n"
+      expected << "You must choose one of [1, 2, 3, 4, 5, Add a new question, Edit an existing question, Delete a question, See a list of all current quesitons, Return to main menu].\n"
+      pipe.puts "5"
+      expected << after_input
+      expected << main_menu
+      pipe.puts "5"
+      expected << after_input
+      expected << "Closing program\n"
       pipe.close_write
       shell_output = pipe.read
     end
