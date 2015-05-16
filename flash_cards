@@ -3,6 +3,24 @@ require 'highline/import'
 Dir["./app/**/*.rb"].each { |f| require f }
 Dir["./lib/*.rb"].each { |f| require f }
 
+def add_series
+  question = "Question:\n"
+
+  category = ask("What is the category of the question?")
+  body = ask("What is the body of the question?")
+  choiceA = ask("What is choice A for this question?")
+  choiceB = ask("What is choice B for this question?")
+  answer = ask("What is the correct answer for this question?")
+
+  question << "category: #{category}\n"
+  question << "body: #{body}\n"
+  question << "choice A: #{choiceA}\n"
+  question << "choice B: #{choiceB}\n"
+  question << "answer: #{answer}"
+
+  question
+end
+
 def missed_questions
   say("Missed Questions\n" +
       "How does a symbol differ from a string?\n" +
@@ -38,7 +56,7 @@ def admin_menu
     questions_controller = QuestionsController.new
 
     menu.header = "Administrator Panel\n" + "Please choose from the following:\n"
-    menu.choice("Add a new question")
+    menu.choice("Add a new question") {add_series}
     menu.choice("Edit an existing question")
     menu.choice("Delete a question")
     menu.choice("See a list of all current questions") do

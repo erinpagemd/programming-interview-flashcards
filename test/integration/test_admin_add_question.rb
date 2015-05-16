@@ -111,7 +111,22 @@ class TestAdminAdd < Minitest::Test
       expected << admin_menu
       pipe.puts "1"
       expected << after_input
-      expected << "Add a new question\n"
+      expected << "What is the category of the question?\n"
+      pipe.puts "Ruby"
+      expected << "What is the body of the question?\n"
+      pipe.puts "What is a hash?"
+      expected << "What is choice A for this question?\n"
+      pipe.puts "An object"
+      expected << "What is choice B for this question?\n"
+      pipe.puts "A string"
+      expected << "What is the correct answer for this question?\n"
+      pipe.puts "A"
+      expected << "Question:\n"
+      expected << "category: Ruby\n"
+      expected << "body: What is a hash?\n"
+      expected << "choice A: An object\n"
+      expected << "choice B: A string\n"
+      expected << "answer: A\n"
       pipe.close_write
       shell_output = pipe.read
     end
@@ -119,6 +134,7 @@ class TestAdminAdd < Minitest::Test
   end
 
   def test_admin_menu_no_input
+    skip
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|
