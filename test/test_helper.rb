@@ -16,8 +16,8 @@ class Minitest::Test
   end
 end
 
-def create_question(body)
-  DataStore.execute("INSERT INTO questions (body) VALUES (?)", body)
+def create_question(category, body, choiceA, choiceB, answer)
+  DataStore.execute("INSERT INTO questions (category, body, choice_a, choice_b, answer) VALUES (?, ?, ?, ?, ?)", [category, body, choiceA, choiceB, answer])
 end
 
 def main_menu

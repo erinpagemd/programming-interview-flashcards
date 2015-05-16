@@ -6,7 +6,12 @@ describe QuestionsController do
     let(:controller) {QuestionsController.new}
 
     it "should add a question body" do
-      controller.add("Javascript is designed for the following purpose")
+      category = "javascript"
+      body = "Javascript is designed for the following purpose"
+      choiceA = "to style HTML pages"
+      choiceB = "to add interactivity to HTML pages"
+      answer = "b"
+      controller.add(category, body, choiceA, choiceB, answer)
       # a. to style html pages
       # b. to execute query related to db on server
       # C. to add interactivity to html pages
@@ -15,12 +20,22 @@ describe QuestionsController do
     end
 
     it "should not add a question body all spaces" do
-      controller.add("          ")
+      category = "javascript"
+      body = "          "
+      choiceA = "to style HTML pages"
+      choiceB = "to add interactivity to HTML pages"
+      answer = "b"
+      controller.add(category, body, choiceA, choiceB, answer)
       assert_equal 0, Question.count
     end
 
     it "should only add a question body that makes sense" do
-      controller.add("7777777")
+      category = "javascript"
+      body = "7777777"
+      choiceA = "to style HTML pages"
+      choiceB = "to add interactivity to HTML pages"
+      answer = "b"
+      controller.add(category, body, choiceA, choiceB, answer)
       assert_equal 0, Question.count
     end
   end

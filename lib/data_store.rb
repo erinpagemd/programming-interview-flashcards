@@ -25,11 +25,4 @@ class DataStore
     @@db.execute(*args)
   end
 
-  # def self.initialize_database
-  #   environment = ENV["TEST"] ? "test" : "production"
-  #   database= "db/flash_cards_#{environment}.sqlite"
-  #   @@db = SQLite3::Database.new(database)
-  #   # @@db.results_as_hash = true
-  # end
-
 end

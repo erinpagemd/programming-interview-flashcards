@@ -13,9 +13,25 @@ describe Question do
     end
     describe "if there are questions" do
       before do
-        create_question("Bob")
-        create_question("Sally")
-        create_question("Amanda")
+        category1 = "ruby"
+        body1 = "two one"
+        choiceA1 = "three one"
+        choiceB1 = "four one"
+        answer1 = "b"
+        category2 = "ruby"
+        body2 = "two two"
+        choiceA2 = "three two"
+        choiceB2 = "four two"
+        answer2 = "a"
+        category3 = "one three"
+        body3 = "two three"
+        choiceA3 = "three three"
+        choiceB3 = "four three"
+        answer3 = "b"
+
+        create_question(category1, body1, choiceA1, choiceB1, answer1)
+        create_question(category2, body2, choiceA2, choiceB2, answer2)
+        create_question(category3, body3, choiceA3, choiceB3, answer3)
       end
       it "should return the correct count" do
         assert_equal 3, Question.count
@@ -25,8 +41,13 @@ describe Question do
 
   describe ".initialize" do
     it "sets the body attribute" do
-      question = Question.new('foo')
-      assert_equal "foo", question.body
+      category = "one"
+      body = "two"
+      choiceA = "three"
+      choiceB = "four"
+      answer = "b"
+      question = Question.new(category, body, choiceA, choiceB, answer)
+      assert_equal "two", question.body
     end
   end
 
