@@ -3,14 +3,66 @@ require 'highline/import'
 Dir["./app/**/*.rb"].each { |f| require f }
 Dir["./lib/*.rb"].each { |f| require f }
 
+def valid?(input)
+  input = input.strip
+  input_regex = /\s|\d/.match(input)
+  if input.nil? or input.empty? or input === input_regex
+    false
+  else
+    true
+  end
+
+end
+
+def get_category
+  category = ask("What is the category of the question?")
+  until valid?(category)
+    category = ask("Please enter a valid category")
+  end
+  category.strip
+end
+
+def get_body
+  body = ask("What is the body of the question?")
+  until valid?(body)
+    body = ask("Please enter a valid question body")
+  end
+  body.strip
+end
+
+def get_choiceA
+  choiceA = ask("What is choice A for this question?")
+  until valid?(choiceA)
+    choiceA = ask("Please enter a valid choice A")
+  end
+  choiceA.strip
+end
+
+def get_choiceB
+  choiceB = ask("What is choice B for this question?")
+  until valid?(choiceB)
+    choiceB = ask("Please enter a valid choice B")
+  end
+  choiceB.strip
+end
+
+def get_answer
+  answer = ask("What is the correct answer for this question?")
+  until valid?(answer)
+    answer = ask("Please enter a or b")
+  end
+  answer.strip
+end
+
 def add_series
   question = "Question:\n"
+  questions_controller = QuestionsController.new
 
-  category = ask("What is the category of the question?")
-  body = ask("What is the body of the question?")
-  choiceA = ask("What is choice A for this question?")
-  choiceB = ask("What is choice B for this question?")
-  answer = ask("What is the correct answer for this question?")
+  category = get_category
+  body = get_body
+  choiceA = get_choiceA
+  choiceB = get_choiceB
+  answer = get_answer
 
   question << "category: #{category}\n"
   question << "body: #{body}\n"
@@ -18,7 +70,6 @@ def add_series
   question << "choice B: #{choiceB}\n"
   question << "answer: #{answer}"
 
-  questions_controller = QuestionsController.new
   questions_controller.add(category, body, choiceA, choiceB, answer)
 
   question
@@ -59,7 +110,10 @@ def admin_menu
     questions_controller = QuestionsController.new
 
     menu.header = "Administrator Panel\n" + "Please choose from the following:\n"
-    menu.choice("Add a new question") {add_series}
+    menu.choice("Add a new question") do
+      say(add_series)
+      admin_menu
+    end
     menu.choice("Edit an existing question")
     menu.choice("Delete a question")
     menu.choice("See a list of all current questions") do

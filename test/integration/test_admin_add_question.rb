@@ -127,6 +127,13 @@ class TestAdminAdd < Minitest::Test
       expected << "choice A: An object\n"
       expected << "choice B: A string\n"
       expected << "answer: A\n"
+      expected << admin_menu
+      pipe.puts "5"
+      expected << after_input
+      expected << main_menu
+      pipe.puts "5"
+      expected << after_input
+      expected << "Closing program\n"
       pipe.close_write
       shell_output = pipe.read
     end
@@ -162,6 +169,13 @@ class TestAdminAdd < Minitest::Test
       expected << "choice A: single, common element\n"
       expected << "choice B: single, unique element\n"
       expected << "answer: b\n"
+      expected << admin_menu
+      pipe.puts "5"
+      expected << after_input
+      expected << main_menu
+      pipe.puts "5"
+      expected << after_input
+      expected << "Closing program\n"
       pipe.close_write
       shell_output = pipe.read
     end
@@ -193,25 +207,260 @@ class TestAdminAdd < Minitest::Test
     assert_equal expected, shell_output
   end
 
-  def test_add_question_category_incorrect_input
+  def test_add_question_category_no_input
+    shell_output = ""
+    expected = ""
+    IO.popen('./flash_cards', 'r+') do |pipe|
+      expected << main_menu
+      pipe.puts "4"
+      expected << after_input
+      expected << admin_menu
+      pipe.puts "1"
+      expected << after_input
+      expected << "What is the category of the question?\n"
+      pipe.puts ""
+      expected << "Please enter a valid category\n"
+      pipe.puts "Ruby"
+      expected << "What is the body of the question?\n"
+      pipe.puts "What is a hash?"
+      expected << "What is choice A for this question?\n"
+      pipe.puts "An object"
+      expected << "What is choice B for this question?\n"
+      pipe.puts "A string"
+      expected << "What is the correct answer for this question?\n"
+      pipe.puts "A"
+      expected << "Question:\n"
+      expected << "category: Ruby\n"
+      expected << "body: What is a hash?\n"
+      expected << "choice A: An object\n"
+      expected << "choice B: A string\n"
+      expected << "answer: A\n"
+      expected << admin_menu
+      pipe.puts "5"
+      expected << after_input
+      expected << main_menu
+      pipe.puts "5"
+      expected << after_input
+      expected << "Closing program\n"
+      pipe.close_write
+      shell_output = pipe.read
+    end
+    assert_equal expected, shell_output
+  end
+
+  def test_add_question_category_multiple_no_input
+    shell_output = ""
+    expected = ""
+    IO.popen('./flash_cards', 'r+') do |pipe|
+      expected << main_menu
+      pipe.puts "4"
+      expected << after_input
+      expected << admin_menu
+      pipe.puts "1"
+      expected << after_input
+      expected << "What is the category of the question?\n"
+      pipe.puts ""
+      expected << "Please enter a valid category\n"
+      pipe.puts ""
+      expected << "Please enter a valid category\n"
+      pipe.puts ""
+      expected << "Please enter a valid category\n"
+      pipe.puts "Ruby"
+      expected << "What is the body of the question?\n"
+      pipe.puts "What is a hash?"
+      expected << "What is choice A for this question?\n"
+      pipe.puts "An object"
+      expected << "What is choice B for this question?\n"
+      pipe.puts "A string"
+      expected << "What is the correct answer for this question?\n"
+      pipe.puts "A"
+      expected << "Question:\n"
+      expected << "category: Ruby\n"
+      expected << "body: What is a hash?\n"
+      expected << "choice A: An object\n"
+      expected << "choice B: A string\n"
+      expected << "answer: A\n"
+      expected << admin_menu
+      pipe.puts "5"
+      expected << after_input
+      expected << main_menu
+      pipe.puts "5"
+      expected << after_input
+      expected << "Closing program\n"
+      pipe.close_write
+      shell_output = pipe.read
+    end
+    assert_equal expected, shell_output
   end
 
   def test_add_question_body_incorrect_input
+    shell_output = ""
+    expected = ""
+    IO.popen('./flash_cards', 'r+') do |pipe|
+      expected << main_menu
+      pipe.puts "4"
+      expected << after_input
+      expected << admin_menu
+      pipe.puts "1"
+      expected << after_input
+      expected << "What is the category of the question?\n"
+      pipe.puts "Ruby"
+      expected << "What is the body of the question?\n"
+      pipe.puts ""
+      expected << "Please enter a valid question body\n"
+      pipe.puts ""
+      expected << "Please enter a valid question body\n"
+      pipe.puts "What is a hash?"
+      expected << "What is choice A for this question?\n"
+      pipe.puts "An object"
+      expected << "What is choice B for this question?\n"
+      pipe.puts "A string"
+      expected << "What is the correct answer for this question?\n"
+      pipe.puts "A"
+      expected << "Question:\n"
+      expected << "category: Ruby\n"
+      expected << "body: What is a hash?\n"
+      expected << "choice A: An object\n"
+      expected << "choice B: A string\n"
+      expected << "answer: A\n"
+      expected << admin_menu
+      pipe.puts "5"
+      expected << after_input
+      expected << main_menu
+      pipe.puts "5"
+      expected << after_input
+      expected << "Closing program\n"
+      pipe.close_write
+      shell_output = pipe.read
+    end
+    assert_equal expected, shell_output
   end
 
   def test_add_question_choiceA_incorrect_input
+    shell_output = ""
+    expected = ""
+    IO.popen('./flash_cards', 'r+') do |pipe|
+      expected << main_menu
+      pipe.puts "4"
+      expected << after_input
+      expected << admin_menu
+      pipe.puts "1"
+      expected << after_input
+      expected << "What is the category of the question?\n"
+      pipe.puts "Ruby"
+      expected << "What is the body of the question?\n"
+      pipe.puts "What is a hash?"
+      expected << "What is choice A for this question?\n"
+      pipe.puts ""
+      expected << "Please enter a valid choice A\n"
+      pipe.puts ""
+      expected << "Please enter a valid choice A\n"
+      pipe.puts "An object"
+      expected << "What is choice B for this question?\n"
+      pipe.puts "A string"
+      expected << "What is the correct answer for this question?\n"
+      pipe.puts "A"
+      expected << "Question:\n"
+      expected << "category: Ruby\n"
+      expected << "body: What is a hash?\n"
+      expected << "choice A: An object\n"
+      expected << "choice B: A string\n"
+      expected << "answer: A\n"
+      expected << admin_menu
+      pipe.puts "5"
+      expected << after_input
+      expected << main_menu
+      pipe.puts "5"
+      expected << after_input
+      expected << "Closing program\n"
+      pipe.close_write
+      shell_output = pipe.read
+    end
+    assert_equal expected, shell_output
   end
 
   def test_add_question_choiceB_incorrect_input
-  end
-
-  def test_add_question_choiceC_incorrect_input
+    shell_output = ""
+    expected = ""
+    IO.popen('./flash_cards', 'r+') do |pipe|
+      expected << main_menu
+      pipe.puts "4"
+      expected << after_input
+      expected << admin_menu
+      pipe.puts "1"
+      expected << after_input
+      expected << "What is the category of the question?\n"
+      pipe.puts "Ruby"
+      expected << "What is the body of the question?\n"
+      pipe.puts "What is a hash?"
+      expected << "What is choice A for this question?\n"
+      pipe.puts "An object"
+      expected << "What is choice B for this question?\n"
+      pipe.puts ""
+      expected << "Please enter a valid choice B\n"
+      pipe.puts ""
+      expected << "Please enter a valid choice B\n"
+      pipe.puts "A string"
+      expected << "What is the correct answer for this question?\n"
+      pipe.puts "A"
+      expected << "Question:\n"
+      expected << "category: Ruby\n"
+      expected << "body: What is a hash?\n"
+      expected << "choice A: An object\n"
+      expected << "choice B: A string\n"
+      expected << "answer: A\n"
+      expected << admin_menu
+      pipe.puts "5"
+      expected << after_input
+      expected << main_menu
+      pipe.puts "5"
+      expected << after_input
+      expected << "Closing program\n"
+      pipe.close_write
+      shell_output = pipe.read
+    end
+    assert_equal expected, shell_output
   end
 
   def test_add_question_answer_incorrect_input
-  end
-
-  def test_returns_to_admin_menu_after_add_complete
+    shell_output = ""
+    expected = ""
+    IO.popen('./flash_cards', 'r+') do |pipe|
+      expected << main_menu
+      pipe.puts "4"
+      expected << after_input
+      expected << admin_menu
+      pipe.puts "1"
+      expected << after_input
+      expected << "What is the category of the question?\n"
+      pipe.puts "Ruby"
+      expected << "What is the body of the question?\n"
+      pipe.puts "What is a hash?"
+      expected << "What is choice A for this question?\n"
+      pipe.puts "An object"
+      expected << "What is choice B for this question?\n"
+      pipe.puts "A string"
+      expected << "What is the correct answer for this question?\n"
+      pipe.puts ""
+      expected << "Please enter a or b\n"
+      pipe.puts "A"
+      expected << "Question:\n"
+      expected << "category: Ruby\n"
+      expected << "body: What is a hash?\n"
+      expected << "choice A: An object\n"
+      expected << "choice B: A string\n"
+      expected << "answer: A\n"
+      expected << admin_menu
+      pipe.puts "5"
+      expected << after_input
+      expected << main_menu
+      pipe.puts "5"
+      expected << after_input
+      expected << "Closing program\n"
+      pipe.close_write
+      shell_output = pipe.read
+    end
+    assert_equal expected, shell_output
   end
 
 end

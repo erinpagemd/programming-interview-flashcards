@@ -5,18 +5,34 @@ describe QuestionsController do
   describe ".add" do
     let(:controller) {QuestionsController.new}
 
-    it "should add a question body" do
+    it "should add a question category" do
       category = "javascript"
       body = "Javascript is designed for the following purpose"
       choiceA = "to style HTML pages"
       choiceB = "to add interactivity to HTML pages"
       answer = "b"
       controller.add(category, body, choiceA, choiceB, answer)
-      # a. to style html pages
-      # b. to execute query related to db on server
-      # C. to add interactivity to html pages
-      # d. to perform server side scripting opertion
       assert_equal 1, Question.count
+    end
+
+    it "should not add a question category all spaces" do
+      category = "        "
+      body = "Javascript is designed for the following purpose"
+      choiceA = "to style HTML pages"
+      choiceB = "to add interactivity to HTML pages"
+      answer = "b"
+      controller.add(category, body, choiceA, choiceB, answer)
+      assert_equal 0, Question.count
+    end
+
+    it "should only add a question category that makes sense" do
+      category = "2 3 4 5 5"
+      body = "Javascript is designed for the following purpose"
+      choiceA = "to style HTML pages"
+      choiceB = "to add interactivity to HTML pages"
+      answer = "b"
+      controller.add(category, body, choiceA, choiceB, answer)
+      assert_equal 0, Question.count
     end
 
     it "should not add a question body all spaces" do
@@ -38,8 +54,18 @@ describe QuestionsController do
       controller.add(category, body, choiceA, choiceB, answer)
       assert_equal 0, Question.count
     end
-  end
 
+    it "should not add a question choiceA all spaces" do
+      category = "javascript"
+      body = "Javascript is designed for the following purpose"
+      choiceA = "          "
+      choiceB = "to add interactivity to HTML pages"
+      answer = "b"
+      controller.add(category, body, choiceA, choiceB, answer)
+      assert_equal 0, Question.count
+    end
+
+  end
   # describe ".index" do
   #   let(:controller) {QuestionsController.new}
   #

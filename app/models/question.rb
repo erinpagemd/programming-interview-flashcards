@@ -9,11 +9,11 @@ class Question
     self.choice_b = choiceB
     self.answer = answer
 
-    if body.nil? or body.empty? or /^\d/.match(body)
-      @errors = "Not a valid question."
-    else
+    if valid?(category) && valid?(body)
       DataStore.execute("INSERT INTO questions (category, body, choice_a, choice_b, answer) VALUES (?, ?, ?, ?, ?)", [@category, @body, @choice_a, @choice_b, @answer])
       # @id = DataStore.execute("SELECT last_insert_rowid()")[0]['last_insert_rowid()']
+    else
+      @errors = "I did not recognize that. Please try again."
     end
   end
 
@@ -24,6 +24,16 @@ class Question
 
   def self.count
     DataStore.execute("SELECT count(id) from questions")[0][0]
+  end
+
+private
+
+  def valid?(input)
+    if input.nil? or input.empty? or /^\d/.match(input)
+      false
+    else
+      true
+    end
   end
 
 end
