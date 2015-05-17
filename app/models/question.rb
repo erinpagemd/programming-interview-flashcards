@@ -9,7 +9,7 @@ class Question
     self.choice_b = choiceB
     self.answer = answer
 
-    if valid?(category) && valid?(body)
+    if valid?(category) && valid?(body) && valid?(choice_a) && valid?(choice_b) && valid?(answer)
       DataStore.execute("INSERT INTO questions (category, body, choice_a, choice_b, answer) VALUES (?, ?, ?, ?, ?)", [@category, @body, @choice_a, @choice_b, @answer])
       # @id = DataStore.execute("SELECT last_insert_rowid()")[0]['last_insert_rowid()']
     else
@@ -29,7 +29,10 @@ class Question
 private
 
   def valid?(input)
-    if input.nil? or input.empty? or /^\d/.match(input)
+    input = input.tr(" ", "")
+    input = input.tr("0123456789", "")
+    input = input.strip
+    if input.nil? or input.empty?
       false
     else
       true

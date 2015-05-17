@@ -40,6 +40,16 @@ describe Question do
   end
 
   describe ".initialize" do
+    it "sets the category attribute" do
+      category = "one"
+      body = "two"
+      choiceA = "three"
+      choiceB = "four"
+      answer = "b"
+      question = Question.new(category, body, choiceA, choiceB, answer)
+      assert_equal "one", question.category
+    end
+
     it "sets the body attribute" do
       category = "one"
       body = "two"
@@ -49,12 +59,39 @@ describe Question do
       question = Question.new(category, body, choiceA, choiceB, answer)
       assert_equal "two", question.body
     end
+
+    it "sets the choice_a attribute" do
+      category = "one"
+      body = "two"
+      choiceA = "three"
+      choiceB = "four"
+      answer = "b"
+      question = Question.new(category, body, choiceA, choiceB, answer)
+      assert_equal "t", question.choice_a
+    end
+
+    it "sets the choice_b attribute" do
+      category = "one"
+      body = "two"
+      choiceA = "three"
+      choiceB = "four"
+      answer = "b"
+      question = Question.new(category, body, choiceA, choiceB, answer)
+      assert_equal "four", question.choice_b
+    end
+
+    it "sets the answer attribute" do
+      category = "one"
+      body = "two"
+      choiceA = "three"
+      choiceB = "four"
+      answer = "b"
+      question = Question.new(category, body, choiceA, choiceB, answer)
+      assert_equal "b", question.answer
+    end
   end
 
   describe ".save" do
-  end
-
-  describe ".valid?" do
   end
 
   describe ".update" do

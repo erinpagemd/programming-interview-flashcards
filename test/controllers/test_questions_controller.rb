@@ -65,6 +65,57 @@ describe QuestionsController do
       assert_equal 0, Question.count
     end
 
+    it "should only add a question choiceA that makes sense" do
+      category = "javascript"
+      body = "Javascript is designed for the following purpose"
+      choiceA = "9 87 8 9 8"
+      choiceB = "to add interactivity to HTML pages"
+      answer = "b"
+      controller.add(category, body, choiceA, choiceB, answer)
+      assert_equal 0, Question.count
+    end
+
+    it "should not add a question choiceB all spaces" do
+      category = "javascript"
+      body = "Javascript is designed for the following purpose"
+      choiceA = "to style HTML pages"
+      choiceB = "          "
+      answer = "b"
+      controller.add(category, body, choiceA, choiceB, answer)
+      assert_equal 0, Question.count
+    end
+
+    it "should only add a question choiceB that makes sense" do
+      category = "javascript"
+      body = "Javascript is designed for the following purpose"
+      choiceA = "to style HTML pages"
+      choiceB = "203947289"
+      answer = "b"
+      controller.add(category, body, choiceA, choiceB, answer)
+      assert_equal 0, Question.count
+    end
+
+    it "should not add a question answer all spaces" do
+      category = "javascript"
+      body = "Javascript is designed for the following purpose"
+      choiceA = "to style HTML pages"
+      choiceB = "to add interactivity to HTML pages"
+      answer = "      "
+      controller.add(category, body, choiceA, choiceB, answer)
+      assert_equal 0, Question.count
+    end
+
+    it "should only add a question answer that makes sense" do
+      category = "javascript"
+      body = "Javascript is designed for the following purpose"
+      choiceA = "to style HTML pages"
+      choiceB = "to add interactivity to HTML pages"
+      answer = "1928474"
+      controller.add(category, body, choiceA, choiceB, answer)
+      assert_equal 0, Question.count
+    end
+
+
   end
   # describe ".index" do
   #   let(:controller) {QuestionsController.new}
