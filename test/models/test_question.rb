@@ -3,6 +3,44 @@ require_relative '../test_helper'
 describe Question do
 
   describe "#all" do
+    describe "if there are no scenarios in the database" do
+      it "should return an empty array" do
+        assert_equal [], Question.all
+      end
+    end
+
+    describe "if there are questions" do
+      before do
+        create_question("One", "Two", "Three", "Four", "a")
+        create_question("Five", "Six", "Seven", "Eight", "b")
+        create_question("Nine", "Ten", "Eleven", "Twelve", "a")
+      end
+      it "should return the question category" do
+        expected = ["One", "Five", "Nine"]
+        actual = Question.all.map{|question| question.category}
+        assert_equal expected, actual
+      end
+      it "should return the question body" do
+        expected =["Two", "Six", "Ten"]
+        actual = Question.all.map{|question| question.body}
+        assert_equal expected, actual
+      end
+      it "should return the question choice_a" do
+        expected = ["Three", "Seven", "Eleven"]
+        actual = Question.all.map{|question| question.choice_a}
+        assert_equal expected, actual
+      end
+      it "should return the question choice_b" do
+        expected = ["Four", "Eight", "Twelve"]
+        actual = Question.all.map{|question| question.choice_b}
+        assert_equal expected, actual
+      end
+      it "should return the question answer" do
+        expected = ["a", "b", "a"]
+        actual = Question.all.map{|question| question.answer}
+        assert_equal expected, actual
+      end
+    end
   end
 
   describe "#count" do
@@ -67,7 +105,7 @@ describe Question do
       choiceB = "four"
       answer = "b"
       question = Question.new(category, body, choiceA, choiceB, answer)
-      assert_equal "t", question.choice_a
+      assert_equal "three", question.choice_a
     end
 
     it "sets the choice_b attribute" do

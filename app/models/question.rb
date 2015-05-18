@@ -1,6 +1,6 @@
 class Question
-  attr_reader :id, :errors
   attr_accessor :category, :body, :choice_a, :choice_b, :answer
+  attr_reader :id
 
   def initialize(category, body, choiceA, choiceB, answer)
     self.category = category
@@ -11,24 +11,27 @@ class Question
 
     if valid?(category) && valid?(body) && valid?(choice_a) && valid?(choice_b) && valid?(answer)
       DataStore.execute("INSERT INTO questions (category, body, choice_a, choice_b, answer) VALUES (?, ?, ?, ?, ?)", [@category, @body, @choice_a, @choice_b, @answer])
-      # @id = DataStore.execute("SELECT last_insert_rowid()")[0]['last_insert_rowid()']
+      @id = DataStore.execute("SELECT last_insert_rowid()")[0]
     else
-      @errors = "I did not recognize that. Please try again."
+      "I did not recognize that. Please try again."
     end
   end
 
   def self.all
-    # makes a new question out of each row in the database
-    # sets the name to name
+    DataStore.execute("SELECT * FROM questions").map do |row|
+      question = Question.new(row[1], row[2], row[3], row[4], row[5])
+      question
+    end
   end
 
   def self.count
-    DataStore.execute("SELECT count(id) from questions")[0][0]
+    DataStore.execute("SELECT count(id) FROM questions")[0][0]
   end
 
 private
 
   def valid?(input)
+    input = input.to_s
     input = input.tr(" ", "")
     input = input.tr("0123456789", "")
     input = input.strip

@@ -11,7 +11,7 @@ class TestAdminReviewAllQuestions < Minitest::Test
       expected << admin_menu
       pipe.puts "4"
       expected << after_input
-      expected << "No questions found.\n"
+      expected << "Current questions:\n"
       pipe.close_write
       shell_output = pipe.read
     end

@@ -2,11 +2,12 @@ require "highline/import"
 
 class QuestionsController
   def index
-    # return all the questions currenty in the database
-    "No questions found.\n"
+    if Question.count > 0
+      "here is a list of questions"
+    else
+      "No questions found.\n"
+    end
   end
-
-
 
   def add(category, body, choiceA, choiceB, answer)
     if valid?(category) && valid?(body) && valid?(choiceA) && valid?(choiceB) && valid?(answer)

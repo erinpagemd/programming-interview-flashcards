@@ -105,6 +105,10 @@ def score_dashboard
       "Enter 1 to go back\n")
 end
 
+def delete_series
+  "Delete a question"
+end
+
 def admin_menu
   say(choose do |menu|
     questions_controller = QuestionsController.new
@@ -115,7 +119,7 @@ def admin_menu
       admin_menu
     end
     menu.choice("Edit an existing question")
-    menu.choice("Delete a question")
+    menu.choice(delete_series)
     menu.choice("See a list of all current questions") do
       say(questions_controller.index)
       exit
