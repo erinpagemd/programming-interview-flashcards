@@ -9,7 +9,7 @@ class Question
     self.answer = answer
     self.id = id
 
-    if self.id.nil?
+    if @id.nil?
       save_question
     end
 
@@ -17,7 +17,7 @@ class Question
 
   def self.all
     DataStore.execute("SELECT * FROM questions").map do |row|
-      question = Question.new(row[1], row[2], row[3], row[4], row[5], row[6])
+      question = Question.new(row[1], row[2], row[3], row[4], row[5], row[0])
       question
     end
   end

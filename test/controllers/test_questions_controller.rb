@@ -115,7 +115,6 @@ describe QuestionsController do
       assert_equal 0, Question.count
     end
 
-
   end
 
   describe ".index" do
