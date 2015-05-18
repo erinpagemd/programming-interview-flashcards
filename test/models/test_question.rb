@@ -129,9 +129,6 @@ describe Question do
     end
   end
 
-  describe ".save" do
-  end
-
   describe ".update" do
   end
 

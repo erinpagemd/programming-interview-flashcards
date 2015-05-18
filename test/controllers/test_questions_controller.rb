@@ -126,11 +126,39 @@ describe QuestionsController do
       assert_equal expected, actual
     end
 
-    it "should list the questions in the database" do
-      actual = controller.index
-      expected = "Here is a list of questions"
-      assert_equal expected, actual
+    describe "if there are questions" do
+      before do
+        create_question("One", "Two", "Three", "Four", "a", nil)
+        create_question("Five", "Six", "Seven", "Eight", "b", nil)
+        create_question("Nine", "Ten", "Eleven", "Twelve", "a", nil)
+      end
+
+      it "should list the questions in the database" do
+        actual = controller.index
+        expected = ""
+        expected << "/////// Question ///////\n"
+        expected << "Category: One\n"
+        expected << "Body: Two\n"
+        expected << "Choice A: Three\n"
+        expected << "Choice B: Four\n"
+        expected << "Answer: a\n\n"
+        expected << "/////// Question ///////\n"
+        expected << "Category: Five\n"
+        expected << "Body: Six\n"
+        expected << "Choice A: Seven\n"
+        expected << "Choice B: Eight\n"
+        expected << "Answer: b\n\n"
+        expected << "/////// Question ///////\n"
+        expected << "Category: Nine\n"
+        expected << "Body: Ten\n"
+        expected << "Choice A: Eleven\n"
+        expected << "Choice B: Twelve\n"
+        expected << "Answer: a\n\n"
+        assert_equal expected, actual
+      end
+
     end
+
   end
 
 end
