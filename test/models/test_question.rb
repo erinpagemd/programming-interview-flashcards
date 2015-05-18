@@ -11,9 +11,9 @@ describe Question do
 
     describe "if there are questions" do
       before do
-        create_question("One", "Two", "Three", "Four", "a")
-        create_question("Five", "Six", "Seven", "Eight", "b")
-        create_question("Nine", "Ten", "Eleven", "Twelve", "a")
+        create_question("One", "Two", "Three", "Four", "a", nil)
+        create_question("Five", "Six", "Seven", "Eight", "b", nil)
+        create_question("Nine", "Ten", "Eleven", "Twelve", "a", nil)
       end
       it "should return the question category" do
         expected = ["One", "Five", "Nine"]
@@ -67,9 +67,9 @@ describe Question do
         choiceB3 = "four three"
         answer3 = "b"
 
-        create_question(category1, body1, choiceA1, choiceB1, answer1)
-        create_question(category2, body2, choiceA2, choiceB2, answer2)
-        create_question(category3, body3, choiceA3, choiceB3, answer3)
+        create_question(category1, body1, choiceA1, choiceB1, answer1, nil)
+        create_question(category2, body2, choiceA2, choiceB2, answer2, nil)
+        create_question(category3, body3, choiceA3, choiceB3, answer3, nil)
       end
       it "should return the correct count" do
         assert_equal 3, Question.count
@@ -84,7 +84,7 @@ describe Question do
       choiceA = "three"
       choiceB = "four"
       answer = "b"
-      question = Question.new(category, body, choiceA, choiceB, answer)
+      question = Question.new(category, body, choiceA, choiceB, answer, nil)
       assert_equal "one", question.category
     end
 
@@ -94,7 +94,7 @@ describe Question do
       choiceA = "three"
       choiceB = "four"
       answer = "b"
-      question = Question.new(category, body, choiceA, choiceB, answer)
+      question = Question.new(category, body, choiceA, choiceB, answer, nil)
       assert_equal "two", question.body
     end
 
@@ -104,7 +104,7 @@ describe Question do
       choiceA = "three"
       choiceB = "four"
       answer = "b"
-      question = Question.new(category, body, choiceA, choiceB, answer)
+      question = Question.new(category, body, choiceA, choiceB, answer, nil)
       assert_equal "three", question.choice_a
     end
 
@@ -114,7 +114,7 @@ describe Question do
       choiceA = "three"
       choiceB = "four"
       answer = "b"
-      question = Question.new(category, body, choiceA, choiceB, answer)
+      question = Question.new(category, body, choiceA, choiceB, answer, nil)
       assert_equal "four", question.choice_b
     end
 
@@ -124,7 +124,7 @@ describe Question do
       choiceA = "three"
       choiceB = "four"
       answer = "b"
-      question = Question.new(category, body, choiceA, choiceB, answer)
+      question = Question.new(category, body, choiceA, choiceB, answer, nil)
       assert_equal "b", question.answer
     end
   end

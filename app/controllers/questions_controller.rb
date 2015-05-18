@@ -3,15 +3,17 @@ require "highline/import"
 class QuestionsController
   def index
     if Question.count > 0
-      "here is a list of questions"
+      questions = Question.all
+      questions.map{|question| question.id}
+      questions
     else
       "No questions found.\n"
     end
   end
 
-  def add(category, body, choiceA, choiceB, answer)
+  def add(category, body, choiceA, choiceB, answer, id)
     if valid?(category) && valid?(body) && valid?(choiceA) && valid?(choiceB) && valid?(answer)
-      question = Question.new(category, body, choiceA, choiceB, answer)
+      question = Question.new(category, body, choiceA, choiceB, answer, id)
     end
   end
 

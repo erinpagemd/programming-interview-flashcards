@@ -70,7 +70,7 @@ def add_series
   question << "choice B: #{choiceB}\n"
   question << "answer: #{answer}"
 
-  questions_controller.add(category, body, choiceA, choiceB, answer)
+  questions_controller.add(category, body, choiceA, choiceB, answer, nil)
 
   question
 end

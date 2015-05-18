@@ -11,7 +11,7 @@ describe QuestionsController do
       choiceA = "to style HTML pages"
       choiceB = "to add interactivity to HTML pages"
       answer = "b"
-      controller.add(category, body, choiceA, choiceB, answer)
+      controller.add(category, body, choiceA, choiceB, answer, nil)
       assert_equal 1, Question.count
     end
 
@@ -21,7 +21,7 @@ describe QuestionsController do
       choiceA = "to style HTML pages"
       choiceB = "to add interactivity to HTML pages"
       answer = "b"
-      controller.add(category, body, choiceA, choiceB, answer)
+      controller.add(category, body, choiceA, choiceB, answer, nil)
       assert_equal 0, Question.count
     end
 
@@ -31,7 +31,7 @@ describe QuestionsController do
       choiceA = "to style HTML pages"
       choiceB = "to add interactivity to HTML pages"
       answer = "b"
-      controller.add(category, body, choiceA, choiceB, answer)
+      controller.add(category, body, choiceA, choiceB, answer, nil)
       assert_equal 0, Question.count
     end
 
@@ -41,7 +41,7 @@ describe QuestionsController do
       choiceA = "to style HTML pages"
       choiceB = "to add interactivity to HTML pages"
       answer = "b"
-      controller.add(category, body, choiceA, choiceB, answer)
+      controller.add(category, body, choiceA, choiceB, answer, nil)
       assert_equal 0, Question.count
     end
 
@@ -51,7 +51,7 @@ describe QuestionsController do
       choiceA = "to style HTML pages"
       choiceB = "to add interactivity to HTML pages"
       answer = "b"
-      controller.add(category, body, choiceA, choiceB, answer)
+      controller.add(category, body, choiceA, choiceB, answer, nil)
       assert_equal 0, Question.count
     end
 
@@ -61,7 +61,7 @@ describe QuestionsController do
       choiceA = "          "
       choiceB = "to add interactivity to HTML pages"
       answer = "b"
-      controller.add(category, body, choiceA, choiceB, answer)
+      controller.add(category, body, choiceA, choiceB, answer, nil)
       assert_equal 0, Question.count
     end
 
@@ -71,7 +71,7 @@ describe QuestionsController do
       choiceA = "9 87 8 9 8"
       choiceB = "to add interactivity to HTML pages"
       answer = "b"
-      controller.add(category, body, choiceA, choiceB, answer)
+      controller.add(category, body, choiceA, choiceB, answer, nil)
       assert_equal 0, Question.count
     end
 
@@ -81,7 +81,7 @@ describe QuestionsController do
       choiceA = "to style HTML pages"
       choiceB = "          "
       answer = "b"
-      controller.add(category, body, choiceA, choiceB, answer)
+      controller.add(category, body, choiceA, choiceB, answer, nil)
       assert_equal 0, Question.count
     end
 
@@ -91,7 +91,7 @@ describe QuestionsController do
       choiceA = "to style HTML pages"
       choiceB = "203947289"
       answer = "b"
-      controller.add(category, body, choiceA, choiceB, answer)
+      controller.add(category, body, choiceA, choiceB, answer, nil)
       assert_equal 0, Question.count
     end
 
@@ -101,7 +101,7 @@ describe QuestionsController do
       choiceA = "to style HTML pages"
       choiceB = "to add interactivity to HTML pages"
       answer = "      "
-      controller.add(category, body, choiceA, choiceB, answer)
+      controller.add(category, body, choiceA, choiceB, answer, nil)
       assert_equal 0, Question.count
     end
 
@@ -111,7 +111,7 @@ describe QuestionsController do
       choiceA = "to style HTML pages"
       choiceB = "to add interactivity to HTML pages"
       answer = "1928474"
-      controller.add(category, body, choiceA, choiceB, answer)
+      controller.add(category, body, choiceA, choiceB, answer, nil)
       assert_equal 0, Question.count
     end
 
