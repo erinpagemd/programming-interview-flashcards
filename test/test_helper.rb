@@ -21,7 +21,7 @@ def create_question(category, body, choiceA, choiceB, answer, id)
 end
 
 def main_menu
-  "Welcome to Flashcards!\n" +
+  "***** Welcome to Flashcards! *****\n" +
   "Please choose from the following:\n" +
   ":\n" +
   "1. Play a new game\n" +
@@ -32,7 +32,7 @@ def main_menu
 end
 
 def admin_menu
-  "Administrator Panel\n" +
+  "***** Administrator Panel *****\n" +
   "Please choose from the following:\n" +
   ":\n" +
   "1. Add a new question\n" +

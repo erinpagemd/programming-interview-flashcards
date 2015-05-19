@@ -55,7 +55,7 @@ def get_answer
 end
 
 def add_series
-  question = "Question:\n"
+  question = "***** Question ADDED! *****\n"
   questions_controller = QuestionsController.new
 
   category = get_category
@@ -113,12 +113,15 @@ def admin_menu
   say(choose do |menu|
     questions_controller = QuestionsController.new
 
-    menu.header = "Administrator Panel\n" + "Please choose from the following:\n"
+    menu.header = "***** Administrator Panel *****\n" + "Please choose from the following:\n"
     menu.choice("Add a new question") do
       say(add_series)
       admin_menu
     end
-    menu.choice("Edit an existing question")
+    menu.choice("Edit an existing question") do
+      questions_controller.edit
+      admin_menu
+    end
     menu.choice(delete_series)
     menu.choice("See a list of all current questions") do
       say(questions_controller.index)
@@ -131,7 +134,7 @@ end
 
 def main_menu
   choose do |menu|
-    menu.header = "Welcome to Flashcards!\n" + "Please choose from the following:\n"
+    menu.header = "***** Welcome to Flashcards! *****\n" + "Please choose from the following:\n"
     menu.choice("Play a new game") { new_game }
     menu.choice("View score dashboard") { score_dashboard }
     menu.choice("Review missed questions") { missed_questions }

@@ -2,7 +2,7 @@ require_relative '../test_helper'
 
 class TestEditQuestion < Minitest::Test
 
-  def test_admin_menu_option_2
+  def test_admin_menu_option_2_without_questions
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|
@@ -12,11 +12,63 @@ class TestEditQuestion < Minitest::Test
       expected << admin_menu
       pipe.puts "2"
       expected << after_input
-      expected << "Edit an existing question\n"
+      expected << "No questions found.\n"
+      expected << admin_menu
+      pipe.puts "5"
+      expected << after_input
+      expected << main_menu
+      pipe.puts "5"
+      expected << after_input
+      expected << "Closing program\n"
       pipe.close_write
       shell_output = pipe.read
     end
     assert_equal expected, shell_output
+  end
+
+  def test_admin_menu_option_2_with_quesitons
+    create_question("One", "Two", "Three", "Four", "a", nil)
+    create_question("Five", "Six", "Seven", "Eight", "b", nil)
+    create_question("Nine", "Ten", "Eleven", "Twelve", "a", nil)
+    shell_output = ""
+    expected = ""
+    IO.popen('./flash_cards', 'r+') do |pipe|
+      expected << main_menu
+      pipe.puts "4"
+      expected << after_input
+      expected << admin_menu
+      pipe.puts "2"
+      expected << after_input
+      expected << "1. Question: Two\n\n"
+      expected << "2. Question: Six\n\n"
+      expected << "3. Question: Ten\n\n"
+      expected << "4. Exit\n"
+      expected << "Which question would you like to manipulate?\n"
+      pipe.puts "1"
+      expected << "Would you like to?\n"
+      expected << "1. Edit\n"
+      expected << "2. Delete\n"
+      expected << "3. Exit\n"
+      pipe.puts "1"
+      expected << after_input
+      expected << admin_menu
+      pipe.puts "5"
+      expected << after_input
+      expected << main_menu
+      pipe.puts "5"
+      expected << after_input
+      expected << "Closing program\n"
+      pipe.close_write
+      shell_output = pipe.read
+    end
+    assert_equal expected, shell_output
+
+  end
+
+  def test_edit_wrong_input
+  end
+
+  def test_action_menu_wrong_input
   end
 
 end
