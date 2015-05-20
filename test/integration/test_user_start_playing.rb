@@ -2,19 +2,138 @@ require_relative '../test_helper'
 
 class TestUserStartNewGame < Minitest::Test
 
-  def test_main_menu_option_1
-    skip
+  def test_main_menu_option_start_game_no_questions
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|
       expected << main_menu
-      pipe.puts "1"
+      pipe.puts "Play"
       expected << after_input
+      expected << "There are no questions. You can add questions in the Admin Menu.\n"
+      expected << main_menu
+      pipe.puts "Exit"
+      expected << after_input
+      expected << "Closing program\n"
       pipe.close_write
       shell_output = pipe.read
     end
     assert_equal expected, shell_output
   end
+
+  def test_main_menu_option_start_game_with_question_happy_path
+    create_question("One", "Two", "Three", "Four", "a", nil)
+    shell_output = ""
+    expected = ""
+    IO.popen('./flash_cards', 'r+') do |pipe|
+      expected << main_menu
+      pipe.puts "Play"
+      expected << after_input
+      expected << "********************************\n***** Question: One *****\n********************************\n"
+      expected << "Two:\n"
+      expected << "1. Three\n"
+      expected << "2. Four\n"
+      pipe.puts "1"
+      expected << after_input
+      expected << "CORRECT!!\n"
+      expected << "Game over!\n"
+      expected << main_menu
+      pipe.puts "Exit"
+      expected << after_input
+      expected << "Closing program\n"
+      pipe.close_write
+      shell_output = pipe.read
+    end
+    assert_equal expected, shell_output
+  end
+
+  def test_main_menu_option_start_game_with_question_no_input_for_answer_then_incorrect_answer
+    create_question("One", "Two", "Three", "Four", "a", nil)
+    shell_output = ""
+    expected = ""
+    IO.popen('./flash_cards', 'r+') do |pipe|
+      expected << main_menu
+      pipe.puts "Play"
+      expected << after_input
+      expected << "********************************\n***** Question: One *****\n********************************\n"
+      expected << "Two:\n"
+      expected << "1. Three\n"
+      expected << "2. Four\n"
+      pipe.puts ""
+      expected << after_input
+      expected << "Ambiguous choice.  Please choose one of [1, 2, Three, Four].\n"
+      pipe.puts "2"
+      expected << after_input
+      expected << "INCORRECT\n"
+      expected << "Game over!\n"
+      expected << main_menu
+      pipe.puts "Exit"
+      expected << after_input
+      expected << "Closing program\n"
+      pipe.close_write
+      shell_output = pipe.read
+    end
+    assert_equal expected, shell_output
+  end
+
+  def test_main_menu_option_start_game_with_question_space_input_for_answer_then_correct_answer
+    create_question("One", "Two", "Three", "Four", "a", nil)
+    shell_output = ""
+    expected = ""
+    IO.popen('./flash_cards', 'r+') do |pipe|
+      expected << main_menu
+      pipe.puts "Play"
+      expected << after_input
+      expected << "********************************\n***** Question: One *****\n********************************\n"
+      expected << "Two:\n"
+      expected << "1. Three\n"
+      expected << "2. Four\n"
+      pipe.puts " "
+      expected << after_input
+      expected << "Ambiguous choice.  Please choose one of [1, 2, Three, Four].\n"
+      pipe.puts "1"
+      expected << after_input
+      expected << "CORRECT!!\n"
+      expected << "Game over!\n"
+      expected << main_menu
+      pipe.puts "Exit"
+      expected << after_input
+      expected << "Closing program\n"
+      pipe.close_write
+      shell_output = pipe.read
+    end
+    assert_equal expected, shell_output
+  end
+
+  def test_main_menu_option_start_game_with_question_unsatisfactory_input_for_answer_then_correct_answer
+    create_question("One", "Two", "Three", "Four", "a", nil)
+    shell_output = ""
+    expected = ""
+    IO.popen('./flash_cards', 'r+') do |pipe|
+      expected << main_menu
+      pipe.puts "Play"
+      expected << after_input
+      expected << "********************************\n***** Question: One *****\n********************************\n"
+      expected << "Two:\n"
+      expected << "1. Three\n"
+      expected << "2. Four\n"
+      pipe.puts "14"
+      expected << after_input
+      expected << "You must choose one of [1, 2, Three, Four].\n"
+      pipe.puts "1"
+      expected << after_input
+      expected << "CORRECT!!\n"
+      expected << "Game over!\n"
+      expected << main_menu
+      pipe.puts "Exit"
+      expected << after_input
+      expected << "Closing program\n"
+      pipe.close_write
+      shell_output = pipe.read
+    end
+    assert_equal expected, shell_output
+  end
+
+
 
 end
 

@@ -1,5 +1,5 @@
 class Attempt
-  attr_accessor :points, :question
+  attr_accessor :question
 
   def choice(question)
     @question = question

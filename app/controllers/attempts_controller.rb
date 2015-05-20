@@ -8,7 +8,11 @@ class AttemptsController
 
   def game
     @questions.each {|question| Attempt.new().choice(question)}
-    say("Game over!")
+    if @questions.empty?
+      say("There are no questions. You can add questions in the Admin Menu.")
+    else
+      say("Game over!")
+    end
   end
 
 end
