@@ -2,23 +2,22 @@ require_relative '../test_helper'
 
 class TestEditQuestion < Minitest::Test
 
-  def test_admin_menu_option_2_without_questions
-    skip
+  def test_admin_menu_option_delete_without_questions
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|
       expected << main_menu
-      pipe.puts "4"
+      pipe.puts "Admin"
       expected << after_input
       expected << admin_menu
-      pipe.puts "2"
+      pipe.puts "Edit"
       expected << after_input
       expected << "No questions found.\n"
       expected << admin_menu
-      pipe.puts "5"
+      pipe.puts "Return"
       expected << after_input
       expected << main_menu
-      pipe.puts "5"
+      pipe.puts "Exit"
       expected << after_input
       expected << "Closing program\n"
       pipe.close_write
@@ -27,8 +26,7 @@ class TestEditQuestion < Minitest::Test
     assert_equal expected, shell_output
   end
 
-  def test_admin_menu_option_2_with_quesitons
-    skip
+  def test_admin_menu_option_edit_with_quesitons_edit_category
     create_question("One", "Two", "Three", "Four", "a", nil)
     create_question("Five", "Six", "Seven", "Eight", "b", nil)
     create_question("Nine", "Ten", "Eleven", "Twelve", "a", nil)
@@ -36,28 +34,254 @@ class TestEditQuestion < Minitest::Test
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|
       expected << main_menu
-      pipe.puts "4"
+      pipe.puts "Admin"
       expected << after_input
       expected << admin_menu
-      pipe.puts "2"
+      pipe.puts "Edit"
       expected << after_input
+      expected << "***** Edit Question *****\n"
+      expected << ":\n"
       expected << "1. Question: Two\n\n"
       expected << "2. Question: Six\n\n"
       expected << "3. Question: Ten\n\n"
       expected << "4. Exit\n"
       expected << "Which question would you like to manipulate?\n"
       pipe.puts "1"
-      expected << "Would you like to?\n"
+      expected << "***********\nWould you like to?\n"
       expected << "1. Edit\n"
       expected << "2. Delete\n"
       expected << "3. Exit\n"
-      pipe.puts "1"
+      pipe.puts "Edit"
       expected << after_input
+      expected << "**********\nEdit Options:\n"
+      expected << "1. Category: One\n"
+      expected << "2. Body: Two\n"
+      expected << "3. Choice A: Three\n"
+      expected << "4. Choice B: Four\n"
+      expected << "5. Answer: a\n"
+      expected << "6. Exit\n"
+      expected << "What part of the question would you like to edit?\n"
+      pipe.puts "Category"
+      expected << "Enter a new category:\n"
+      pipe.puts "Thirty eleven"
+      expected << "Category updated to Thirty eleven.\n"
       expected << admin_menu
-      pipe.puts "5"
+      pipe.puts "Return"
       expected << after_input
       expected << main_menu
-      pipe.puts "5"
+      pipe.puts "Exit"
+      expected << after_input
+      expected << "Closing program\n"
+      pipe.close_write
+      shell_output = pipe.read
+    end
+    assert_equal expected, shell_output
+
+  end
+
+  def test_admin_menu_option_edit_with_questions_edit_body
+    create_question("One", "Two", "Three", "Four", "a", nil)
+    create_question("Five", "Six", "Seven", "Eight", "b", nil)
+    create_question("Nine", "Ten", "Eleven", "Twelve", "a", nil)
+    shell_output = ""
+    expected = ""
+    IO.popen('./flash_cards', 'r+') do |pipe|
+      expected << main_menu
+      pipe.puts "Admin"
+      expected << after_input
+      expected << admin_menu
+      pipe.puts "Edit"
+      expected << after_input
+      expected << "***** Edit Question *****\n"
+      expected << ":\n"
+      expected << "1. Question: Two\n\n"
+      expected << "2. Question: Six\n\n"
+      expected << "3. Question: Ten\n\n"
+      expected << "4. Exit\n"
+      expected << "Which question would you like to manipulate?\n"
+      pipe.puts "1"
+      expected << "***********\nWould you like to?\n"
+      expected << "1. Edit\n"
+      expected << "2. Delete\n"
+      expected << "3. Exit\n"
+      pipe.puts "Edit"
+      expected << after_input
+      expected << "**********\nEdit Options:\n"
+      expected << "1. Category: One\n"
+      expected << "2. Body: Two\n"
+      expected << "3. Choice A: Three\n"
+      expected << "4. Choice B: Four\n"
+      expected << "5. Answer: a\n"
+      expected << "6. Exit\n"
+      expected << "What part of the question would you like to edit?\n"
+      pipe.puts "Body"
+      expected << "Enter a new body:\n"
+      pipe.puts "Thirty eleven"
+      expected << "Body updated to Thirty eleven.\n"
+      expected << admin_menu
+      pipe.puts "Return"
+      expected << after_input
+      expected << main_menu
+      pipe.puts "Exit"
+      expected << after_input
+      expected << "Closing program\n"
+      pipe.close_write
+      shell_output = pipe.read
+    end
+    assert_equal expected, shell_output
+
+  end
+
+  def test_admin_menu_option_edit_with_questions_edit_choice_a
+    create_question("One", "Two", "Three", "Four", "a", nil)
+    create_question("Five", "Six", "Seven", "Eight", "b", nil)
+    create_question("Nine", "Ten", "Eleven", "Twelve", "a", nil)
+    shell_output = ""
+    expected = ""
+    IO.popen('./flash_cards', 'r+') do |pipe|
+      expected << main_menu
+      pipe.puts "Admin"
+      expected << after_input
+      expected << admin_menu
+      pipe.puts "Edit"
+      expected << after_input
+      expected << "***** Edit Question *****\n"
+      expected << ":\n"
+      expected << "1. Question: Two\n\n"
+      expected << "2. Question: Six\n\n"
+      expected << "3. Question: Ten\n\n"
+      expected << "4. Exit\n"
+      expected << "Which question would you like to manipulate?\n"
+      pipe.puts "1"
+      expected << "***********\nWould you like to?\n"
+      expected << "1. Edit\n"
+      expected << "2. Delete\n"
+      expected << "3. Exit\n"
+      pipe.puts "Edit"
+      expected << after_input
+      expected << "**********\nEdit Options:\n"
+      expected << "1. Category: One\n"
+      expected << "2. Body: Two\n"
+      expected << "3. Choice A: Three\n"
+      expected << "4. Choice B: Four\n"
+      expected << "5. Answer: a\n"
+      expected << "6. Exit\n"
+      expected << "What part of the question would you like to edit?\n"
+      pipe.puts "Choice A"
+      expected << "Enter a new Choice A:\n"
+      pipe.puts "Thirty eleven"
+      expected << "Choice A updated to Thirty eleven.\n"
+      expected << admin_menu
+      pipe.puts "Return"
+      expected << after_input
+      expected << main_menu
+      pipe.puts "Exit"
+      expected << after_input
+      expected << "Closing program\n"
+      pipe.close_write
+      shell_output = pipe.read
+    end
+    assert_equal expected, shell_output
+
+  end
+
+  def test_admin_menu_option_edit_with_questions_edit_choice_b
+    create_question("One", "Two", "Three", "Four", "a", nil)
+    create_question("Five", "Six", "Seven", "Eight", "b", nil)
+    create_question("Nine", "Ten", "Eleven", "Twelve", "a", nil)
+    shell_output = ""
+    expected = ""
+    IO.popen('./flash_cards', 'r+') do |pipe|
+      expected << main_menu
+      pipe.puts "Admin"
+      expected << after_input
+      expected << admin_menu
+      pipe.puts "Edit"
+      expected << after_input
+      expected << "***** Edit Question *****\n"
+      expected << ":\n"
+      expected << "1. Question: Two\n\n"
+      expected << "2. Question: Six\n\n"
+      expected << "3. Question: Ten\n\n"
+      expected << "4. Exit\n"
+      expected << "Which question would you like to manipulate?\n"
+      pipe.puts "1"
+      expected << "***********\nWould you like to?\n"
+      expected << "1. Edit\n"
+      expected << "2. Delete\n"
+      expected << "3. Exit\n"
+      pipe.puts "Edit"
+      expected << after_input
+      expected << "**********\nEdit Options:\n"
+      expected << "1. Category: One\n"
+      expected << "2. Body: Two\n"
+      expected << "3. Choice A: Three\n"
+      expected << "4. Choice B: Four\n"
+      expected << "5. Answer: a\n"
+      expected << "6. Exit\n"
+      expected << "What part of the question would you like to edit?\n"
+      pipe.puts "Choice B"
+      expected << "Enter a new Choice B:\n"
+      pipe.puts "Thirty eleven"
+      expected << "Choice B updated to Thirty eleven.\n"
+      expected << admin_menu
+      pipe.puts "Return"
+      expected << after_input
+      expected << main_menu
+      pipe.puts "Exit"
+      expected << after_input
+      expected << "Closing program\n"
+      pipe.close_write
+      shell_output = pipe.read
+    end
+    assert_equal expected, shell_output
+
+  end
+
+  def test_admin_menu_option_edit_with_questions_edit_answer
+    create_question("One", "Two", "Three", "Four", "a", nil)
+    create_question("Five", "Six", "Seven", "Eight", "b", nil)
+    create_question("Nine", "Ten", "Eleven", "Twelve", "a", nil)
+    shell_output = ""
+    expected = ""
+    IO.popen('./flash_cards', 'r+') do |pipe|
+      expected << main_menu
+      pipe.puts "Admin"
+      expected << after_input
+      expected << admin_menu
+      pipe.puts "Edit"
+      expected << after_input
+      expected << "***** Edit Question *****\n"
+      expected << ":\n"
+      expected << "1. Question: Two\n\n"
+      expected << "2. Question: Six\n\n"
+      expected << "3. Question: Ten\n\n"
+      expected << "4. Exit\n"
+      expected << "Which question would you like to manipulate?\n"
+      pipe.puts "1"
+      expected << "***********\nWould you like to?\n"
+      expected << "1. Edit\n"
+      expected << "2. Delete\n"
+      expected << "3. Exit\n"
+      pipe.puts "Edit"
+      expected << after_input
+      expected << "**********\nEdit Options:\n"
+      expected << "1. Category: One\n"
+      expected << "2. Body: Two\n"
+      expected << "3. Choice A: Three\n"
+      expected << "4. Choice B: Four\n"
+      expected << "5. Answer: a\n"
+      expected << "6. Exit\n"
+      expected << "What part of the question would you like to edit?\n"
+      pipe.puts "Answer"
+      expected << "Enter the correct answer:\n"
+      pipe.puts "b"
+      expected << "Answer updated to b.\n"
+      expected << admin_menu
+      pipe.puts "Return"
+      expected << after_input
+      expected << main_menu
+      pipe.puts "Exit"
       expected << after_input
       expected << "Closing program\n"
       pipe.close_write
@@ -72,6 +296,47 @@ class TestEditQuestion < Minitest::Test
 
   def test_action_menu_wrong_input
   end
+
+  def test_admin_menu_option_delete_with_questions
+    create_question("One", "Two", "Three", "Four", "a", nil)
+    create_question("Five", "Six", "Seven", "Eight", "b", nil)
+    create_question("Nine", "Ten", "Eleven", "Twelve", "a", nil)
+    shell_output = ""
+    expected = ""
+    IO.popen('./flash_cards', 'r+') do |pipe|
+      expected << main_menu
+      pipe.puts "Admin"
+      expected << after_input
+      expected << admin_menu
+      pipe.puts "Edit"
+      expected << after_input
+      expected << "***** Edit Question *****\n:\n"
+      expected << "1. Question: Two\n\n"
+      expected << "2. Question: Six\n\n"
+      expected << "3. Question: Ten\n\n"
+      expected << "4. Exit\n"
+      expected << "Which question would you like to manipulate?\n"
+      pipe.puts "1"
+      expected << "***********\nWould you like to?\n"
+      expected << "1. Edit\n"
+      expected << "2. Delete\n"
+      expected << "3. Exit\n"
+      pipe.puts "Delete"
+      expected << after_input
+      expected << "Question deleted.\n"
+      expected << admin_menu
+      pipe.puts "Return"
+      expected << after_input
+      expected << main_menu
+      pipe.puts "Exit"
+      expected << after_input
+      expected << "Closing program\n"
+      pipe.close_write
+      shell_output = pipe.read
+    end
+    assert_equal expected, shell_output
+  end
+
 
 end
 

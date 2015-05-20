@@ -9,7 +9,7 @@ class QuestionsController
         questions.each do |question|
           menu.choice("Question: #{question.body}\n") {action_menu(question)}
         end
-        menu.header = "***** Edit Question*****\n"
+        menu.header = "***** Edit Question *****\n"
         menu.choice("Exit")
         menu.prompt = "Which question would you like to manipulate?"
       end
@@ -72,21 +72,21 @@ private
     user_input = ask("Enter a new Choice A:")
     question.choice_a = user_input.strip
     question.update_choice_a(question.choice_a)
-    say("Choice A updated to #{question.choice_a}")
+    say("Choice A updated to #{question.choice_a}.")
   end
 
   def edit_choice_b(question)
     user_input = ask("Enter a new Choice B:")
     question.choice_b = user_input.strip
     question.update_choice_b(question.choice_b)
-    say("Choice B updated to #{question.choice_b}")
+    say("Choice B updated to #{question.choice_b}.")
   end
 
   def edit_answer(question)
     user_input = ask("Enter the correct answer:")
     question.answer = user_input.strip
     question.update_answer(question.answer)
-    say("Answer updated to #{question.answer}")
+    say("Answer updated to #{question.answer}.")
   end
 
   def action_menu(question)
@@ -95,7 +95,7 @@ private
       menu.choice("Edit") do
         choose do |menu|
           menu.prompt = "What part of the question would you like to edit?"
-          menu.header = "**********\n Edit Options"
+          menu.header = "**********\nEdit Options"
           menu.choice("Category: #{question.category}"){edit_category(question)}
           menu.choice("Body: #{question.body}"){edit_body(question)}
           menu.choice("Choice A: #{question.choice_a}"){edit_choice_a(question)}
