@@ -61,6 +61,34 @@ private
     say("Category updated to #{question.category}.")
   end
 
+  def edit_body(question)
+    user_input = ask("Enter a new body:")
+    question.body = user_input.strip
+    question.update_body(question.body)
+    say("Body updated to #{question.body}.")
+  end
+
+  def edit_choice_a(question)
+    user_input = ask("Enter a new Choice A:")
+    question.choice_a = user_input.strip
+    question.update_choice_a(question.choice_a)
+    say("Choice A updated to #{question.choice_a}")
+  end
+
+  def edit_choice_b(question)
+    user_input = ask("Enter a new Choice B:")
+    question.choice_b = user_input.strip
+    question.update_choice_b(question.choice_b)
+    say("Choice B updated to #{question.choice_b}")
+  end
+
+  def edit_answer(question)
+    user_input = ask("Enter the correct answer:")
+    question.answer = user_input.strip
+    question.update_answer(question.answer)
+    say("Answer updated to #{question.answer}")
+  end
+
   def action_menu(question)
     say("***********\nWould you like to?")
     choose do |menu|
@@ -69,10 +97,10 @@ private
           menu.prompt = "What part of the question would you like to edit?"
           menu.header = "**********\n Edit Options"
           menu.choice("Category: #{question.category}"){edit_category(question)}
-          menu.choice("Body: #{question.body}")
-          menu.choice("Choice A: #{question.choice_a}")
-          menu.choice("Choice B: #{question.choice_b}")
-          menu.choice("Answer: #{question.answer}")
+          menu.choice("Body: #{question.body}"){edit_body(question)}
+          menu.choice("Choice A: #{question.choice_a}"){edit_choice_a(question)}
+          menu.choice("Choice B: #{question.choice_b}"){edit_choice_b(question)}
+          menu.choice("Answer: #{question.answer}"){edit_answer(question)}
           menu.choice("Exit") do
             exit
           end

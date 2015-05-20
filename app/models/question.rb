@@ -30,6 +30,21 @@ class Question
     DataStore.execute("UPDATE questions SET category=? WHERE id=?", category, id)
   end
 
+  def update_body(body)
+    DataStore.execute("UPDATE questions SET body=? WHERE id=?", body, id)
+  end
+
+  def update_choice_a(choice_a)
+    DataStore.execute("UPDATE questions SET choice_a=? WHERE id=?", choice_a, id)
+  end
+
+  def update_choice_b(choice_b)
+    DataStore.execute("UPDATE questions SET choice_b=? WHERE id=?", choice_b, id)
+  end
+
+  def update_answer(answer)
+    DataStore.execute("UPDATE questions SET answer=? WHERE id=?", answer, id)
+  end
 
 private
 
