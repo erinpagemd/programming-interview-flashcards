@@ -2,13 +2,12 @@ require_relative '../test_helper'
 
 class TestReviewMissedQuestions < Minitest::Test
 
-  def test_main_menu_option_3
-    skip
+  def test_main_menu_option_review_missed
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|
       expected << main_menu
-      pipe.puts "3"
+      pipe.puts "Review"
       expected << after_input
       expected << "Missed Questions\n"
       expected << "How does a symbol differ from a string?\n"
