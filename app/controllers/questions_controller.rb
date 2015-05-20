@@ -13,8 +13,10 @@ class QuestionsController
         menu.choice("Exit")
         menu.prompt = "Which question would you like to manipulate?"
       end
+      true
     else
       say("No questions found.\n")
+      false
     end
   end
 
