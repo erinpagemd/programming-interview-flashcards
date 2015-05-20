@@ -46,6 +46,10 @@ class Question
     DataStore.execute("UPDATE questions SET answer=? WHERE id=?", answer, id)
   end
 
+  def delete
+    DataStore.execute("DELETE FROM questions WHERE id=?", id)
+  end
+
 private
 
   def valid?(input)

@@ -107,7 +107,8 @@ private
         end
       end
       menu.choice("Delete") do
-        "Delete now!!"
+        question.delete
+        say("Question deleted.")
       end
       menu.choice("Exit") do
         exit
