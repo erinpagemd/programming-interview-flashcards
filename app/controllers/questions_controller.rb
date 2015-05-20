@@ -9,6 +9,7 @@ class QuestionsController
         questions.each do |question|
           menu.choice("Question: #{question.body}\n") {action_menu(question)}
         end
+        menu.header = "***** Edit Question*****\n"
         menu.choice("Exit")
         menu.prompt = "Which question would you like to manipulate?"
       end
@@ -53,13 +54,21 @@ private
     end
   end
 
+  def edit_category(question)
+    user_input = ask("Enter a new category:")
+    question.category = user_input.strip
+    question.update_category(question.category)
+    say("Category updated to #{question.category}.")
+  end
+
   def action_menu(question)
-    say("Would you like to?")
+    say("***********\nWould you like to?")
     choose do |menu|
       menu.choice("Edit") do
         choose do |menu|
           menu.prompt = "What part of the question would you like to edit?"
-          menu.choice("Category: #{question.category}")
+          menu.header = "**********\n Edit Options"
+          menu.choice("Category: #{question.category}"){edit_category(question)}
           menu.choice("Body: #{question.body}")
           menu.choice("Choice A: #{question.choice_a}")
           menu.choice("Choice B: #{question.choice_b}")

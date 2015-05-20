@@ -26,6 +26,11 @@ class Question
     DataStore.execute("SELECT count(id) FROM questions")[0][0]
   end
 
+  def update_category(category)
+    DataStore.execute("UPDATE questions SET category=? WHERE id=?", category, id)
+  end
+
+
 private
 
   def valid?(input)
@@ -48,6 +53,5 @@ private
       "I did not recognize that. Please try again."
     end
   end
-
 
 end
