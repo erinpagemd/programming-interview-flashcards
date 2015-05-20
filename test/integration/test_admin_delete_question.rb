@@ -1,7 +1,9 @@
 require_relative '../test_helper'
 
 class TestAdminDelete < Minitest::Test
+
   def test_admin_menu_option_3
+    skip
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|

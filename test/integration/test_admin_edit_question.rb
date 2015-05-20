@@ -3,6 +3,7 @@ require_relative '../test_helper'
 class TestEditQuestion < Minitest::Test
 
   def test_admin_menu_option_2_without_questions
+    skip
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|
@@ -27,6 +28,7 @@ class TestEditQuestion < Minitest::Test
   end
 
   def test_admin_menu_option_2_with_quesitons
+    skip
     create_question("One", "Two", "Three", "Four", "a", nil)
     create_question("Five", "Six", "Seven", "Eight", "b", nil)
     create_question("Nine", "Ten", "Eleven", "Twelve", "a", nil)

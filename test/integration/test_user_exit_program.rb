@@ -1,7 +1,9 @@
 require_relative '../test_helper'
 
 class TestExitProgram < Minitest::Test
+
   def test_main_menu_option_5
+    skip
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|

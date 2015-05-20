@@ -21,25 +21,27 @@ def create_question(category, body, choiceA, choiceB, answer, id)
 end
 
 def main_menu
+  "**********************************\n" +
   "***** Welcome to Flashcards! *****\n" +
+  "**********************************\n" +
   "Please choose from the following:\n" +
   ":\n" +
   "1. Play a new game\n" +
-  "2. View score dashboard\n" +
-  "3. Review missed questions\n" +
-  "4. Administrator activities\n" +
-  "5. Exit\n"
+  "2. Review missed questions\n" +
+  "3. Administrator activities\n" +
+  "4. Exit\n"
 end
 
 def admin_menu
+  "*******************************\n" +
   "***** Administrator Panel *****\n" +
+  "*******************************\n" +
   "Please choose from the following:\n" +
   ":\n" +
   "1. Add a new question\n" +
-  "2. Edit an existing question\n" +
-  "3. Delete a question\n" +
-  "4. See a list of all current questions\n" +
-  "5. Return to main menu\n"
+  "2. Edit or Delete an existing question\n" +
+  "3. See a list of all current questions\n" +
+  "4. Return to main menu\n"
 end
 
 def after_input

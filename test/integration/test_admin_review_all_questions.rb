@@ -1,22 +1,66 @@
 require_relative '../test_helper'
 
 class TestAdminReviewAllQuestions < Minitest::Test
-  def test_admin_menu_option_4
+  def test_admin_menu_option_3_no_questions
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|
       expected << main_menu
-      pipe.puts "4"
+      pipe.puts "3"
       expected << after_input
       expected << admin_menu
-      pipe.puts "4"
+      pipe.puts "3"
       expected << after_input
       expected << "No questions found.\n"
       expected << admin_menu
-      pipe.puts "5"
+      pipe.puts "4"
       expected << after_input
       expected << main_menu
-      pipe.puts "5"
+      pipe.puts "4"
+      expected << after_input
+      expected << "Closing program\n"
+      pipe.close_write
+      shell_output = pipe.read
+    end
+    assert_equal expected, shell_output
+  end
+
+  def test_admin_menu_option_3_with_questions
+    create_question("One", "Two", "Three", "Four", "a", nil)
+    create_question("Five", "Six", "Seven", "Eight", "b", nil)
+    create_question("Nine", "Ten", "Eleven", "Twelve", "a", nil)
+    shell_output = ""
+    expected = ""
+    IO.popen('./flash_cards', 'r+') do |pipe|
+      expected << main_menu
+      pipe.puts "3"
+      expected << after_input
+      expected << admin_menu
+      pipe.puts "3"
+      expected << after_input
+      expected << "/////// Question ///////\n"
+      expected << "Category: One\n"
+      expected << "Body: Two\n"
+      expected << "Choice A: Three\n"
+      expected << "Choice B: Four\n"
+      expected << "Answer: a\n\n"
+      expected << "/////// Question ///////\n"
+      expected << "Category: Five\n"
+      expected << "Body: Six\n"
+      expected << "Choice A: Seven\n"
+      expected << "Choice B: Eight\n"
+      expected << "Answer: b\n\n"
+      expected << "/////// Question ///////\n"
+      expected << "Category: Nine\n"
+      expected << "Body: Ten\n"
+      expected << "Choice A: Eleven\n"
+      expected << "Choice B: Twelve\n"
+      expected << "Answer: a\n\n"
+      expected << admin_menu
+      pipe.puts "4"
+      expected << after_input
+      expected << main_menu
+      pipe.puts "4"
       expected << after_input
       expected << "Closing program\n"
       pipe.close_write

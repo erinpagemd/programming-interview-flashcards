@@ -3,6 +3,7 @@ require_relative '../test_helper'
 class TestAdminAdd < Minitest::Test
 
   def test_wrong_number_argv
+    skip
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards oneArg', 'r+') do |pipe|
@@ -14,6 +15,7 @@ class TestAdminAdd < Minitest::Test
   end
 
   def test_main_menu_wrong_input
+    skip
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|
@@ -37,6 +39,7 @@ class TestAdminAdd < Minitest::Test
   end
 
   def test_main_menu_space_input
+    skip
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|
@@ -60,6 +63,7 @@ class TestAdminAdd < Minitest::Test
   end
 
   def test_main_menu_no_input
+    skip
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|
@@ -82,6 +86,7 @@ class TestAdminAdd < Minitest::Test
   end
 
   def test_main_menu_option_4
+    skip
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|
@@ -102,6 +107,7 @@ class TestAdminAdd < Minitest::Test
   end
 
   def test_admin_menu_option_1
+    skip
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|
@@ -141,6 +147,7 @@ class TestAdminAdd < Minitest::Test
   end
 
   def test_admin_menu_no_input
+    skip
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|
@@ -208,6 +215,7 @@ class TestAdminAdd < Minitest::Test
   end
 
   def test_add_question_category_no_input
+    skip
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|
@@ -249,6 +257,7 @@ class TestAdminAdd < Minitest::Test
   end
 
   def test_add_question_category_multiple_no_input
+    skip
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|
@@ -294,6 +303,7 @@ class TestAdminAdd < Minitest::Test
   end
 
   def test_add_question_body_incorrect_input
+    skip
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|
@@ -337,6 +347,7 @@ class TestAdminAdd < Minitest::Test
   end
 
   def test_add_question_choiceA_incorrect_input
+    skip
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|
@@ -380,6 +391,7 @@ class TestAdminAdd < Minitest::Test
   end
 
   def test_add_question_choiceB_incorrect_input
+    skip
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|
@@ -423,6 +435,7 @@ class TestAdminAdd < Minitest::Test
   end
 
   def test_add_question_answer_incorrect_input
+    skip
     shell_output = ""
     expected = ""
     IO.popen('./flash_cards', 'r+') do |pipe|
