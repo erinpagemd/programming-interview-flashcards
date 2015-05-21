@@ -2,30 +2,6 @@ require_relative "../test_helper"
 
 describe QuestionsController do
 
-  describe ".edit" do
-    let(:controller) {QuestionsController.new}
-
-    it "should be false if there are no questions to edit" do
-      expected = false
-      actual = controller.edit
-      assert_equal expected, actual
-    end
-
-    describe "if there are questions" do |variable|
-      before do
-        create_question("One", "Two", "Three", "Four", "a", nil)
-        create_question("Five", "Six", "Seven", "Eight", "b", nil)
-        create_question("Nine", "Ten", "Eleven", "Twelve", "a", nil)
-      end
-      it "should be true if there are in the database" do
-        expected = true
-        actual = controller.edit
-        assert_equal expected, actual
-      end
-    end
-
-  end
-
   describe ".add" do
     let(:controller) {QuestionsController.new}
 

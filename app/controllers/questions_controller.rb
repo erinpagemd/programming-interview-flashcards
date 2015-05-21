@@ -3,9 +3,10 @@ require "highline/import"
 class QuestionsController
 
   def edit
+    output = ""
     if Question.count > 0
       questions = Question.all
-      choose do |menu|
+      output = choose do |menu|
         questions.each do |question|
           menu.choice("Question: #{question.body}\n") {action_menu(question)}
         end
@@ -13,10 +14,10 @@ class QuestionsController
         menu.choice("Exit")
         menu.prompt = "Which question would you like to manipulate?"
       end
-      true
+      output
     else
-      say("No questions found.\n")
-      false
+      output = say("No questions found.\n")
+      output
     end
   end
 
